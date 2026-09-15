@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /sol-signals-site/
+Disallow: /sol-signals-site/products/atr-watch/
+Sitemap: https://sol-associates.github.io/sol-signals-site/sitemap.xml
