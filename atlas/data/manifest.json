@@ -1,8 +1,8 @@
 {
  "tier": "PUBLIC",
  "edition": "demo",
- "build_id": "216630799f1e",
- "built_at": "2026-10-27T17:28:47Z",
+ "build_id": "87400ff0f861",
+ "built_at": "2026-10-27T19:16:43Z",
  "preview": false,
  "basemap": {
   "url": "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -27,14 +27,14 @@
     "layer_id": "assets_plants",
     "metric": "Power plants as mapped in OpenStreetMap",
     "unit": "MW",
-    "as_of": "2026-10-14",
-    "retrieved_at": "2026-10-14T20:22:03Z",
-    "built_at": "2026-10-14T20:49:08Z",
+    "as_of": "2026-10-27",
+    "retrieved_at": "2026-10-27T19:11:31Z",
+    "built_at": "2026-10-27T19:12:05Z",
     "time_basis": "snapshot",
     "evidence_label": "OBSERVED",
     "verification_status": "UNVERIFIED",
     "source_ref": "https://www.openstreetmap.org",
-    "transform_note": "Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-14.",
+    "transform_note": "Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-27.",
     "transform_version": "assets-1",
     "licence": {
      "identifier": "ODbL-1.0",
@@ -51,7 +51,7 @@
      "coordinate_order": "WGS84_lon_lat"
     },
     "quality": {
-     "missing_count": 600,
+     "missing_count": 603,
      "excluded_count": 0,
      "unmatched_count": 2,
      "limitations": [
@@ -67,7 +67,7 @@
    },
    "counts": {
     "wind": 42,
-    "solar": 517,
+    "solar": 521,
     "hydro": 133,
     "gas": 29,
     "coal": 7,
@@ -76,9 +76,9 @@
     "battery": 0,
     "oil": 2,
     "other": 2,
-    "unknown": 26
+    "unknown": 25
    },
-   "age_days": 13,
+   "age_days": 0,
    "stale": false,
    "categories": [
     "wind",
@@ -107,14 +107,14 @@
     "layer_id": "assets_generators_unassigned",
     "metric": "Generators not assigned to a mapped plant",
     "unit": "MW",
-    "as_of": "2026-10-14",
-    "retrieved_at": "2026-10-14T20:22:03Z",
-    "built_at": "2026-10-14T20:49:08Z",
+    "as_of": "2026-10-27",
+    "retrieved_at": "2026-10-27T19:11:31Z",
+    "built_at": "2026-10-27T19:12:05Z",
     "time_basis": "snapshot",
     "evidence_label": "OBSERVED",
     "verification_status": "UNVERIFIED",
     "source_ref": "https://www.openstreetmap.org",
-    "transform_note": "Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-14.",
+    "transform_note": "Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-27.",
     "transform_version": "assets-1",
     "licence": {
      "identifier": "ODbL-1.0",
@@ -131,7 +131,7 @@
      "coordinate_order": "WGS84_lon_lat"
     },
     "quality": {
-     "missing_count": 876,
+     "missing_count": 819,
      "excluded_count": 0,
      "unmatched_count": 0,
      "limitations": [
@@ -157,7 +157,7 @@
     "other": 2,
     "unknown": 41
    },
-   "age_days": 13,
+   "age_days": 0,
    "stale": false,
    "categories": [
     "wind",
@@ -186,14 +186,14 @@
     "layer_id": "assets_substations",
     "metric": "Substations as mapped in OpenStreetMap",
     "unit": "kV",
-    "as_of": "2026-10-14",
-    "retrieved_at": "2026-10-14T20:22:03Z",
-    "built_at": "2026-10-14T20:49:08Z",
+    "as_of": "2026-10-27",
+    "retrieved_at": "2026-10-27T19:11:31Z",
+    "built_at": "2026-10-27T19:12:05Z",
     "time_basis": "snapshot",
     "evidence_label": "OBSERVED",
     "verification_status": "UNVERIFIED",
     "source_ref": "https://www.openstreetmap.org",
-    "transform_note": "Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-14.",
+    "transform_note": "Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-27.",
     "transform_version": "assets-1",
     "licence": {
      "identifier": "ODbL-1.0",
@@ -210,7 +210,7 @@
      "coordinate_order": "WGS84_lon_lat"
     },
     "quality": {
-     "missing_count": 1122,
+     "missing_count": 1123,
      "excluded_count": 0,
      "unmatched_count": 2,
      "limitations": [
@@ -228,11 +228,11 @@
     "750": 0,
     "400": 40,
     "220": 52,
-    "110": 363,
+    "110": 365,
     "other": 159,
-    "unknown": 1122
+    "unknown": 1123
    },
-   "age_days": 13,
+   "age_days": 0,
    "stale": false,
    "categories": [
     "750",
@@ -257,14 +257,14 @@
     "layer_id": "assets_lines",
     "metric": "Power lines, minor lines and cables as mapped in OpenStreetMap",
     "unit": "kV",
-    "as_of": "2026-10-14",
-    "retrieved_at": "2026-10-14T20:22:03Z",
-    "built_at": "2026-10-14T20:49:08Z",
+    "as_of": "2026-10-27",
+    "retrieved_at": "2026-10-27T19:11:31Z",
+    "built_at": "2026-10-27T19:12:05Z",
     "time_basis": "snapshot",
     "evidence_label": "OBSERVED",
     "verification_status": "UNVERIFIED",
     "source_ref": "https://www.openstreetmap.org",
-    "transform_note": "Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-14.",
+    "transform_note": "Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-27.",
     "transform_version": "assets-1",
     "licence": {
      "identifier": "ODbL-1.0",
@@ -281,7 +281,7 @@
      "coordinate_order": "WGS84_lon_lat"
     },
     "quality": {
-     "missing_count": 2304,
+     "missing_count": 2342,
      "excluded_count": 0,
      "unmatched_count": 9,
      "limitations": [
@@ -297,13 +297,13 @@
    },
    "counts": {
     "750": 0,
-    "400": 460,
+    "400": 455,
     "220": 202,
     "110": 1998,
     "other": 750,
-    "unknown": 2304
+    "unknown": 2342
    },
-   "age_days": 13,
+   "age_days": 0,
    "stale": false,
    "categories": [
     "750",
@@ -327,9 +327,9 @@
     "layer_id": "counties",
     "metric": "County outlines (OSM admin_level=4)",
     "unit": "geometry",
-    "as_of": "2026-10-14",
-    "retrieved_at": "2026-10-14T20:22:08Z",
-    "built_at": "2026-10-14T20:49:08Z",
+    "as_of": "2026-10-27",
+    "retrieved_at": "2026-10-27T19:12:04Z",
+    "built_at": "2026-10-27T19:12:05Z",
     "time_basis": "snapshot",
     "evidence_label": "DERIVED",
     "verification_status": "UNVERIFIED",
@@ -367,7 +367,7 @@
    "counts": {
     "features": 42
    },
-   "age_days": 13,
+   "age_days": 0,
    "stale": false
   },
   {
@@ -383,9 +383,9 @@
     "layer_id": "country",
     "metric": "Romania outline (OSM admin_level=2)",
     "unit": "geometry",
-    "as_of": "2026-10-14",
-    "retrieved_at": "2026-10-14T20:22:08Z",
-    "built_at": "2026-10-14T20:49:08Z",
+    "as_of": "2026-10-27",
+    "retrieved_at": "2026-10-27T19:12:04Z",
+    "built_at": "2026-10-27T19:12:05Z",
     "time_basis": "snapshot",
     "evidence_label": "DERIVED",
     "verification_status": "UNVERIFIED",
@@ -422,7 +422,7 @@
    "counts": {
     "features": 1
    },
-   "age_days": 13,
+   "age_days": 0,
    "stale": false
   },
   {
@@ -439,8 +439,8 @@
     "metric": "100 m wind speed and total cloud cover forecast",
     "unit": "wind100_ms in m/s; cloud_pct in percent",
     "as_of": "2026-10-27",
-    "retrieved_at": "2026-10-27T17:28:27Z",
-    "built_at": "2026-10-27T17:28:29Z",
+    "retrieved_at": "2026-10-27T19:16:17Z",
+    "built_at": "2026-10-27T19:16:20Z",
     "time_basis": "forecast_validity",
     "evidence_label": "FORECAST",
     "verification_status": "UNVERIFIED",
@@ -616,8 +616,8 @@
     "metric": "Daily electricity production by fuel, Romania (ENTSO-E bidding zone RO)",
     "unit": "MWh per local day (Europe/Bucharest)",
     "as_of": "2026-10-26",
-    "retrieved_at": "2026-10-27T17:28:45Z",
-    "built_at": "2026-10-27T17:28:46Z",
+    "retrieved_at": "2026-10-27T19:16:37Z",
+    "built_at": "2026-10-27T19:16:41Z",
     "time_basis": "interval",
     "evidence_label": "DERIVED",
     "verification_status": "UNVERIFIED",
@@ -682,7 +682,7 @@
     "unit": "MW",
     "as_of": "2026-04-25",
     "retrieved_at": "2026-09-15T16:25:02Z",
-    "built_at": "2026-10-27T13:27:12Z",
+    "built_at": "2026-10-27T19:16:40Z",
     "time_basis": "snapshot",
     "evidence_label": "DERIVED",
     "verification_status": "UNVERIFIED",
@@ -1175,24 +1175,24 @@
  },
  "data_hashes": {
   "data/assets_generators_unassigned.json": {
-   "sha256": "540fd0a4b1d852c8b95ce6aeb3ca50ae480d2013669f7273691d0f7ded371833",
-   "bytes": 213636
+   "sha256": "f5dbe004fde59a9f6518de126d4301a6fe75e4e11ded98abe4f143d770bb6c30",
+   "bytes": 213575
   },
   "data/assets_lines_high.json": {
-   "sha256": "2c7a51d58d1794768f8b4ae7d99e02251266f383b9f48bd574c650790b6ce2a2",
-   "bytes": 1778207
+   "sha256": "3aee7b98cf2a8eded7bf6407e7938736a940b7cb51bc17b7aad5e921cff7e895",
+   "bytes": 1787300
   },
   "data/assets_lines_low.json": {
-   "sha256": "8df9d41b6a06c1c8e2b722104adaa17fc6b8f590a51b70123d84154bd09ca63f",
-   "bytes": 841381
+   "sha256": "7faca26e4af88558f8631ffb9e61366a20f6a1455176e03a39e7a59f21f03c64",
+   "bytes": 850416
   },
   "data/assets_plants.json": {
-   "sha256": "6245dd7a01e1167d2f64c145d5e6a1b7824ba984ce64f07207c4acbf32c91d97",
-   "bytes": 194587
+   "sha256": "056d463b732f0d0940b2b67a3f79d6de862843d38ea62c2d99df81f9b8b9ced6",
+   "bytes": 195332
   },
   "data/assets_substations.json": {
-   "sha256": "764d7676ae2101dca0c2c7f4342eb60c3c51123c0f1502469beb7b3002c779a5",
-   "bytes": 415199
+   "sha256": "7be5c50b7c6793c0a18933c0ae1027121d9110abf67c26278ecf672a40ccbfed",
+   "bytes": 415962
   },
   "data/atr_govro_2026_04_25.json": {
    "sha256": "688fc46860a00aa77609d83396c322455da6e73117196cbe44887c4a6c834daa",

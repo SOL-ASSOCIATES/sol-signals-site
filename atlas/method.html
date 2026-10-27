@@ -36,7 +36,7 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <header>
 <p><a href="index.html">Back to the map</a></p>
 <h1>Method and sources</h1>
-<p class="edition">DEMO edition | Build 216630799f1e | 2026-10-27 17:28 UTC</p>
+<p class="edition">DEMO edition | Build 87400ff0f861 | 2026-10-27 19:16 UTC</p>
 </header>
 <main>
 <p class="lead">Explore Romania&#x27;s mapped power plants, substations and grid, and county totals from the published list of grid connection approvals (ATR).</p>
@@ -57,17 +57,17 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <dt>What it shows</dt><dd>Power plants as mapped in OpenStreetMap (MW)</dd>
 <dt>Kind of evidence</dt><dd>OBSERVED. As published or as mapped in the source. Sol Associates has not checked these values against another source.</dd>
 <dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
-<dt>Date</dt><dd>As of 2026-10-14 (13 days old at build; limit 14 days)</dd>
+<dt>Date</dt><dd>As of 2026-10-27 (0 days old at build; limit 14 days)</dd>
 <dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
 <dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
-<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-14.</dd>
+<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-27.</dd>
 <dt>Geography</dt><dd>Romania (OSM area ISO3166-1=RO, admin_level=2)</dd>
 <dt>Coverage</dt><dd>Everything OSM mapped inside Romania at the snapshot date; mapping completeness is unknown</dd>
 <dt>What is included</dt><dd>power=plant nodes, ways and relations</dd>
 <dt>Spatial resolution</dt><dd>Vector geometry as mapped, coordinates rounded to 5 decimals (about 1 m)</dd>
 <dt>Time resolution</dt><dd>Snapshot of the OSM database at as_of (a single time, no history)</dd>
 <dt>What it does not show</dt><dd><ul><li>OSM tags are used as mapped by volunteers; this is not a census of grid assets and nothing was checked against an operator or regulator register.</li><li>Unknown voltage, fuel, MW and status are kept as unknown and never defaulted.</li><li>mw is the plant output tag when it parses, else the sum of the member generators that carry an output value (mw_basis says which), else unknown; a sum can understate the plant when some members have no value.</li><li>A generator belongs to a plant when it is a relation member or inside the plant polygon (smallest polygon wins); polygon plants are shown at their centroid.</li><li>County is the county containing the representative point (the middle vertex for lines) of boundaries simplified to about 0.005 degrees, so features within about 500 m of a border can be assigned to the neighbouring county.</li></ul></dd>
-<dt>Data files</dt><dd><a href="data/assets_plants.json">assets_plants.json</a> (190 KB)</dd>
+<dt>Data files</dt><dd><a href="data/assets_plants.json">assets_plants.json</a> (191 KB)</dd>
 </dl>
 </article>
 <article class="layer">
@@ -77,10 +77,10 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <dt>What it shows</dt><dd>Generators not assigned to a mapped plant (MW)</dd>
 <dt>Kind of evidence</dt><dd>OBSERVED. As published or as mapped in the source. Sol Associates has not checked these values against another source.</dd>
 <dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
-<dt>Date</dt><dd>As of 2026-10-14 (13 days old at build; limit 14 days)</dd>
+<dt>Date</dt><dd>As of 2026-10-27 (0 days old at build; limit 14 days)</dd>
 <dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
 <dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
-<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-14.</dd>
+<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-27.</dd>
 <dt>Geography</dt><dd>Romania (OSM area ISO3166-1=RO, admin_level=2)</dd>
 <dt>Coverage</dt><dd>Everything OSM mapped inside Romania at the snapshot date; mapping completeness is unknown</dd>
 <dt>What is included</dt><dd>power=generator nodes and ways outside every plant</dd>
@@ -97,17 +97,17 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <dt>What it shows</dt><dd>Substations as mapped in OpenStreetMap (kV)</dd>
 <dt>Kind of evidence</dt><dd>OBSERVED. As published or as mapped in the source. Sol Associates has not checked these values against another source.</dd>
 <dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
-<dt>Date</dt><dd>As of 2026-10-14 (13 days old at build; limit 14 days)</dd>
+<dt>Date</dt><dd>As of 2026-10-27 (0 days old at build; limit 14 days)</dd>
 <dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
 <dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
-<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-14.</dd>
+<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-27.</dd>
 <dt>Geography</dt><dd>Romania (OSM area ISO3166-1=RO, admin_level=2)</dd>
 <dt>Coverage</dt><dd>Everything OSM mapped inside Romania at the snapshot date; mapping completeness is unknown</dd>
 <dt>What is included</dt><dd>power=substation nodes, ways and relations</dd>
 <dt>Spatial resolution</dt><dd>Vector geometry as mapped, coordinates rounded to 5 decimals (about 1 m)</dd>
 <dt>Time resolution</dt><dd>Snapshot of the OSM database at as_of (a single time, no history)</dd>
 <dt>What it does not show</dt><dd><ul><li>OSM tags are used as mapped by volunteers; this is not a census of grid assets and nothing was checked against an operator or regulator register.</li><li>Unknown voltage, fuel, MW and status are kept as unknown and never defaulted.</li><li>voltage_class is the class of the highest listed voltage; OSM voltage is in volts, values below 1 kV stay fractional.</li><li>Substation polygons are shown at their centroid.</li><li>County is the county containing the representative point (the middle vertex for lines) of boundaries simplified to about 0.005 degrees, so features within about 500 m of a border can be assigned to the neighbouring county.</li></ul></dd>
-<dt>Data files</dt><dd><a href="data/assets_substations.json">assets_substations.json</a> (405 KB)</dd>
+<dt>Data files</dt><dd><a href="data/assets_substations.json">assets_substations.json</a> (406 KB)</dd>
 </dl>
 </article>
 <article class="layer">
@@ -117,17 +117,17 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <dt>What it shows</dt><dd>Power lines, minor lines and cables as mapped in OpenStreetMap (kV)</dd>
 <dt>Kind of evidence</dt><dd>OBSERVED. As published or as mapped in the source. Sol Associates has not checked these values against another source.</dd>
 <dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
-<dt>Date</dt><dd>As of 2026-10-14 (13 days old at build; limit 14 days)</dd>
+<dt>Date</dt><dd>As of 2026-10-27 (0 days old at build; limit 14 days)</dd>
 <dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
 <dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
-<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-14.</dd>
+<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-27.</dd>
 <dt>Geography</dt><dd>Romania (OSM area ISO3166-1=RO, admin_level=2)</dd>
 <dt>Coverage</dt><dd>Everything OSM mapped inside Romania at the snapshot date; mapping completeness is unknown</dd>
 <dt>What is included</dt><dd>power=line, power=minor_line and power=cable ways</dd>
 <dt>Spatial resolution</dt><dd>Vector geometry as mapped, coordinates rounded to 5 decimals (about 1 m)</dd>
 <dt>Time resolution</dt><dd>Snapshot of the OSM database at as_of (a single time, no history)</dd>
 <dt>What it does not show</dt><dd><ul><li>OSM tags are used as mapped by volunteers; this is not a census of grid assets and nothing was checked against an operator or regulator register.</li><li>Unknown voltage, fuel, MW and status are kept as unknown and never defaulted.</li><li>voltage_class is the class of the highest listed voltage; a line with several circuits is shown once at its highest voltage.</li><li>Lines that cross the border are kept whole.</li><li>County is the county containing the representative point (the middle vertex for lines) of boundaries simplified to about 0.005 degrees, so features within about 500 m of a border can be assigned to the neighbouring county.</li></ul></dd>
-<dt>Data files</dt><dd><a href="data/assets_lines_low.json">assets_lines_low.json</a> (822 KB), <a href="data/assets_lines_high.json">assets_lines_high.json</a> (1.7 MB)</dd>
+<dt>Data files</dt><dd><a href="data/assets_lines_low.json">assets_lines_low.json</a> (830 KB), <a href="data/assets_lines_high.json">assets_lines_high.json</a> (1.7 MB)</dd>
 </dl>
 </article>
 <article class="layer">
@@ -137,7 +137,7 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <dt>What it shows</dt><dd>County outlines (OSM admin_level=4) (geometry)</dd>
 <dt>Kind of evidence</dt><dd>DERIVED. Computed from the source data by Sol Associates.</dd>
 <dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
-<dt>Date</dt><dd>As of 2026-10-14 (13 days old at build; limit 14 days)</dd>
+<dt>Date</dt><dd>As of 2026-10-27 (0 days old at build; limit 14 days)</dd>
 <dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
 <dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
 <dt>How it was made</dt><dd>Relation outer and inner member ways simplified once per way id (Douglas-Peucker 0.005 degrees or finer where a ring would cross itself), stitched into rings, rounded to 5 decimals.</dd>
@@ -157,7 +157,7 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <dt>What it shows</dt><dd>Romania outline (OSM admin_level=2) (geometry)</dd>
 <dt>Kind of evidence</dt><dd>DERIVED. Computed from the source data by Sol Associates.</dd>
 <dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
-<dt>Date</dt><dd>As of 2026-10-14 (13 days old at build; limit 14 days)</dd>
+<dt>Date</dt><dd>As of 2026-10-27 (0 days old at build; limit 14 days)</dd>
 <dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
 <dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
 <dt>How it was made</dt><dd>Relation outer and inner member ways simplified once per way id (Douglas-Peucker 0.005 degrees or finer where a ring would cross itself), stitched into rings, rounded to 5 decimals.</dd>
