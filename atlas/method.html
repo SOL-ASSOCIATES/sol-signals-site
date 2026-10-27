@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="index, follow">
+<meta name="description" content="How the Romanian Energy Grid Atlas is made: the source, licence, date, method and limits of every layer, and what the map does not show.">
+<title>Method and sources - Romanian Energy Grid Atlas - DEMO edition</title>
+<link rel="canonical" href="https://sol-associates.github.io/sol-signals-site/atlas/method.html">
+<style>
+:root { color-scheme: light dark; --bg: #F3F5F7; --panel: #FFFFFF; --ink: #1B2430; --ink-2: #4A5667; --line: #D5DBE3; --accent: #0B5CAD; --chip: #EDF0F3; }
+@media (prefers-color-scheme: dark) { :root { --bg: #151A21; --panel: #1D242D; --ink: #E7ECF2; --ink-2: #AAB5C3; --line: #333E4B; --accent: #7DB8F5; --chip: #252E39; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+a { color: var(--accent); }
+header, main, footer { max-width: 52rem; margin: 0 auto; padding: 1rem 1.25rem; }
+header { padding-top: 1.5rem; }
+h1 { font-size: 1.6rem; line-height: 1.25; margin: .25rem 0; }
+h2 { font-size: 1.2rem; margin: 2rem 0 .5rem; border-bottom: 1px solid var(--line); padding-bottom: .25rem; }
+h3 { font-size: 1.05rem; margin: 0 0 .4rem; }
+.edition { color: var(--ink-2); font-size: .85rem; margin: 0; }
+.layer { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: .9rem 1rem; margin: 0 0 1rem; }
+.chips { margin: 0 0 .5rem; display: flex; flex-wrap: wrap; gap: .35rem; }
+.chip { font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; border: 1px solid var(--ink-2); border-radius: 3px; padding: .05rem .4rem; background: var(--chip); }
+dl { display: grid; grid-template-columns: minmax(7rem, 11rem) minmax(0, 1fr); gap: .35rem .9rem; margin: 0; font-size: .92rem; }
+dt { color: var(--ink-2); }
+dd { margin: 0; overflow-wrap: anywhere; }
+ul { margin: .2rem 0; padding-left: 1.2rem; }
+p { margin: .5rem 0; }
+footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--line); margin-top: 2rem; }
+@media (max-width: 600px) { dl { grid-template-columns: minmax(0, 1fr); } dt { margin-top: .4rem; } }
+</style>
+</head>
+<body>
+<header>
+<p><a href="index.html">Back to the map</a></p>
+<h1>Method and sources</h1>
+<p class="edition">DEMO edition | Build 216630799f1e | 2026-10-27 17:28 UTC</p>
+</header>
+<main>
+<p class="lead">Explore Romania&#x27;s mapped power plants, substations and grid, and county totals from the published list of grid connection approvals (ATR).</p>
+<p>This page describes the layers of this edition of the Romanian Energy Grid Atlas: where each one comes from, under which licence, as of which date, how it was made, and what it does not show. The map is general information, not advice.</p>
+<p>This is a demo edition, built from open sources. All numbers are as of the build date shown above and of the date of each layer; the demo is updated periodically and is not a live service.</p>
+<p>This edition includes grid connection approval (Aviz Tehnic de Racordare, ATR) capacity as listed by the Government of Romania; the ATR layer is described below with its limits.</p>
+<h2>In this demo</h2>
+<ul><li>Power plants</li><li>Generators outside a plant</li><li>Substations</li><li>Power lines</li><li>County outlines</li><li>Country outline</li><li>Wind and cloud forecast (a dated weather forecast; not a forecast of generation, revenue or dispatch)</li><li>Solar irradiation, long-term (GHI) (long-term averages, not current site yield)</li><li>PV output potential, long-term (PVOUT) (long-term averages, not current site yield)</li><li>Daily national production by fuel (historical totals by day)</li><li>Listed ATR capacity (gov.ro list, April 2026) (county totals from one dated list)</li></ul>
+<h2>Not in this demo</h2>
+<ul><li>Grid development plan</li><li>Operational storage capacities</li><li>Production forecasts</li></ul>
+<h2>How to read the evidence labels</h2>
+<ul><li><strong>OBSERVED</strong>: As published or as mapped in the source. Sol Associates has not checked these values against another source.</li><li><strong>DERIVED</strong>: Computed from the source data by Sol Associates.</li><li><strong>FORECAST</strong>: A model forecast, not a measurement.</li></ul>
+<h2>Layers in this edition</h2>
+<article class="layer">
+<h3>Power plants</h3>
+<p class="chips"><span class="chip">OBSERVED</span><span class="chip">unverified</span></p>
+<dl>
+<dt>What it shows</dt><dd>Power plants as mapped in OpenStreetMap (MW)</dd>
+<dt>Kind of evidence</dt><dd>OBSERVED. As published or as mapped in the source. Sol Associates has not checked these values against another source.</dd>
+<dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
+<dt>Date</dt><dd>As of 2026-10-14 (13 days old at build; limit 14 days)</dd>
+<dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
+<dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
+<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-14.</dd>
+<dt>Geography</dt><dd>Romania (OSM area ISO3166-1=RO, admin_level=2)</dd>
+<dt>Coverage</dt><dd>Everything OSM mapped inside Romania at the snapshot date; mapping completeness is unknown</dd>
+<dt>What is included</dt><dd>power=plant nodes, ways and relations</dd>
+<dt>Spatial resolution</dt><dd>Vector geometry as mapped, coordinates rounded to 5 decimals (about 1 m)</dd>
+<dt>Time resolution</dt><dd>Snapshot of the OSM database at as_of (a single time, no history)</dd>
+<dt>What it does not show</dt><dd><ul><li>OSM tags are used as mapped by volunteers; this is not a census of grid assets and nothing was checked against an operator or regulator register.</li><li>Unknown voltage, fuel, MW and status are kept as unknown and never defaulted.</li><li>mw is the plant output tag when it parses, else the sum of the member generators that carry an output value (mw_basis says which), else unknown; a sum can understate the plant when some members have no value.</li><li>A generator belongs to a plant when it is a relation member or inside the plant polygon (smallest polygon wins); polygon plants are shown at their centroid.</li><li>County is the county containing the representative point (the middle vertex for lines) of boundaries simplified to about 0.005 degrees, so features within about 500 m of a border can be assigned to the neighbouring county.</li></ul></dd>
+<dt>Data files</dt><dd><a href="data/assets_plants.json">assets_plants.json</a> (190 KB)</dd>
+</dl>
+</article>
+<article class="layer">
+<h3>Generators outside a plant</h3>
+<p class="chips"><span class="chip">OBSERVED</span><span class="chip">unverified</span></p>
+<dl>
+<dt>What it shows</dt><dd>Generators not assigned to a mapped plant (MW)</dd>
+<dt>Kind of evidence</dt><dd>OBSERVED. As published or as mapped in the source. Sol Associates has not checked these values against another source.</dd>
+<dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
+<dt>Date</dt><dd>As of 2026-10-14 (13 days old at build; limit 14 days)</dd>
+<dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
+<dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
+<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-14.</dd>
+<dt>Geography</dt><dd>Romania (OSM area ISO3166-1=RO, admin_level=2)</dd>
+<dt>Coverage</dt><dd>Everything OSM mapped inside Romania at the snapshot date; mapping completeness is unknown</dd>
+<dt>What is included</dt><dd>power=generator nodes and ways outside every plant</dd>
+<dt>Spatial resolution</dt><dd>Vector geometry as mapped, coordinates rounded to 5 decimals (about 1 m)</dd>
+<dt>Time resolution</dt><dd>Snapshot of the OSM database at as_of (a single time, no history)</dd>
+<dt>What it does not show</dt><dd><ul><li>OSM tags are used as mapped by volunteers; this is not a census of grid assets and nothing was checked against an operator or regulator register.</li><li>Unknown voltage, fuel, MW and status are kept as unknown and never defaulted.</li><li>Generators in a plant relation or inside a plant polygon are counted in assets_plants, not here; polygon generators are shown at their centroid.</li><li>County is the county containing the representative point (the middle vertex for lines) of boundaries simplified to about 0.005 degrees, so features within about 500 m of a border can be assigned to the neighbouring county.</li></ul></dd>
+<dt>Data files</dt><dd><a href="data/assets_generators_unassigned.json">assets_generators_unassigned.json</a> (209 KB)</dd>
+</dl>
+</article>
+<article class="layer">
+<h3>Substations</h3>
+<p class="chips"><span class="chip">OBSERVED</span><span class="chip">unverified</span></p>
+<dl>
+<dt>What it shows</dt><dd>Substations as mapped in OpenStreetMap (kV)</dd>
+<dt>Kind of evidence</dt><dd>OBSERVED. As published or as mapped in the source. Sol Associates has not checked these values against another source.</dd>
+<dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
+<dt>Date</dt><dd>As of 2026-10-14 (13 days old at build; limit 14 days)</dd>
+<dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
+<dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
+<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-14.</dd>
+<dt>Geography</dt><dd>Romania (OSM area ISO3166-1=RO, admin_level=2)</dd>
+<dt>Coverage</dt><dd>Everything OSM mapped inside Romania at the snapshot date; mapping completeness is unknown</dd>
+<dt>What is included</dt><dd>power=substation nodes, ways and relations</dd>
+<dt>Spatial resolution</dt><dd>Vector geometry as mapped, coordinates rounded to 5 decimals (about 1 m)</dd>
+<dt>Time resolution</dt><dd>Snapshot of the OSM database at as_of (a single time, no history)</dd>
+<dt>What it does not show</dt><dd><ul><li>OSM tags are used as mapped by volunteers; this is not a census of grid assets and nothing was checked against an operator or regulator register.</li><li>Unknown voltage, fuel, MW and status are kept as unknown and never defaulted.</li><li>voltage_class is the class of the highest listed voltage; OSM voltage is in volts, values below 1 kV stay fractional.</li><li>Substation polygons are shown at their centroid.</li><li>County is the county containing the representative point (the middle vertex for lines) of boundaries simplified to about 0.005 degrees, so features within about 500 m of a border can be assigned to the neighbouring county.</li></ul></dd>
+<dt>Data files</dt><dd><a href="data/assets_substations.json">assets_substations.json</a> (405 KB)</dd>
+</dl>
+</article>
+<article class="layer">
+<h3>Power lines</h3>
+<p class="chips"><span class="chip">OBSERVED</span><span class="chip">unverified</span></p>
+<dl>
+<dt>What it shows</dt><dd>Power lines, minor lines and cables as mapped in OpenStreetMap (kV)</dd>
+<dt>Kind of evidence</dt><dd>OBSERVED. As published or as mapped in the source. Sol Associates has not checked these values against another source.</dd>
+<dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
+<dt>Date</dt><dd>As of 2026-10-14 (13 days old at build; limit 14 days)</dd>
+<dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
+<dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
+<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-14.</dd>
+<dt>Geography</dt><dd>Romania (OSM area ISO3166-1=RO, admin_level=2)</dd>
+<dt>Coverage</dt><dd>Everything OSM mapped inside Romania at the snapshot date; mapping completeness is unknown</dd>
+<dt>What is included</dt><dd>power=line, power=minor_line and power=cable ways</dd>
+<dt>Spatial resolution</dt><dd>Vector geometry as mapped, coordinates rounded to 5 decimals (about 1 m)</dd>
+<dt>Time resolution</dt><dd>Snapshot of the OSM database at as_of (a single time, no history)</dd>
+<dt>What it does not show</dt><dd><ul><li>OSM tags are used as mapped by volunteers; this is not a census of grid assets and nothing was checked against an operator or regulator register.</li><li>Unknown voltage, fuel, MW and status are kept as unknown and never defaulted.</li><li>voltage_class is the class of the highest listed voltage; a line with several circuits is shown once at its highest voltage.</li><li>Lines that cross the border are kept whole.</li><li>County is the county containing the representative point (the middle vertex for lines) of boundaries simplified to about 0.005 degrees, so features within about 500 m of a border can be assigned to the neighbouring county.</li></ul></dd>
+<dt>Data files</dt><dd><a href="data/assets_lines_low.json">assets_lines_low.json</a> (822 KB), <a href="data/assets_lines_high.json">assets_lines_high.json</a> (1.7 MB)</dd>
+</dl>
+</article>
+<article class="layer">
+<h3>County outlines</h3>
+<p class="chips"><span class="chip">DERIVED</span><span class="chip">unverified</span></p>
+<dl>
+<dt>What it shows</dt><dd>County outlines (OSM admin_level=4) (geometry)</dd>
+<dt>Kind of evidence</dt><dd>DERIVED. Computed from the source data by Sol Associates.</dd>
+<dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
+<dt>Date</dt><dd>As of 2026-10-14 (13 days old at build; limit 14 days)</dd>
+<dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
+<dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
+<dt>How it was made</dt><dd>Relation outer and inner member ways simplified once per way id (Douglas-Peucker 0.005 degrees or finer where a ring would cross itself), stitched into rings, rounded to 5 decimals.</dd>
+<dt>Geography</dt><dd>Romania (OSM area ISO3166-1=RO, admin_level=2)</dd>
+<dt>Coverage</dt><dd>Everything OSM mapped inside Romania at the snapshot date; mapping completeness is unknown</dd>
+<dt>What is included</dt><dd>admin_level=4 relations</dd>
+<dt>Spatial resolution</dt><dd>Simplified to 0.005 degrees (about 500 m) or finer, shared edges identical, 5 decimals</dd>
+<dt>Time resolution</dt><dd>Snapshot of the OSM database at as_of (a single time, no history)</dd>
+<dt>What it does not show</dt><dd><ul><li>OSM tags are used as mapped by volunteers; this is not a census of grid assets and nothing was checked against an operator or regulator register.</li><li>Unknown voltage, fuel, MW and status are kept as unknown and never defaulted.</li><li>Names are the OSM name tag without a leading Judetul or Municipiul.</li><li>Boundary ways are simplified with Douglas-Peucker at 0.005 degrees or finer: every ring is checked to be simple and the ways of a failing relation are re-simplified finer (counted at build time); crossings between different counties are not checked.</li></ul></dd>
+<dt>Data files</dt><dd><a href="data/counties.json">counties.json</a> (278 KB)</dd>
+</dl>
+</article>
+<article class="layer">
+<h3>Country outline</h3>
+<p class="chips"><span class="chip">DERIVED</span><span class="chip">unverified</span></p>
+<dl>
+<dt>What it shows</dt><dd>Romania outline (OSM admin_level=2) (geometry)</dd>
+<dt>Kind of evidence</dt><dd>DERIVED. Computed from the source data by Sol Associates.</dd>
+<dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
+<dt>Date</dt><dd>As of 2026-10-14 (13 days old at build; limit 14 days)</dd>
+<dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
+<dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
+<dt>How it was made</dt><dd>Relation outer and inner member ways simplified once per way id (Douglas-Peucker 0.005 degrees or finer where a ring would cross itself), stitched into rings, rounded to 5 decimals.</dd>
+<dt>Geography</dt><dd>Romania (OSM area ISO3166-1=RO, admin_level=2)</dd>
+<dt>Coverage</dt><dd>Everything OSM mapped inside Romania at the snapshot date; mapping completeness is unknown</dd>
+<dt>What is included</dt><dd>the Romania country relation</dd>
+<dt>Spatial resolution</dt><dd>Simplified to 0.005 degrees (about 500 m) or finer, shared edges identical, 5 decimals</dd>
+<dt>Time resolution</dt><dd>Snapshot of the OSM database at as_of (a single time, no history)</dd>
+<dt>What it does not show</dt><dd><ul><li>OSM tags are used as mapped by volunteers; this is not a census of grid assets and nothing was checked against an operator or regulator register.</li><li>Unknown voltage, fuel, MW and status are kept as unknown and never defaulted.</li><li>Boundary ways are simplified with Douglas-Peucker at 0.005 degrees or finer: every ring is checked to be simple and the ways of a failing relation are re-simplified finer (counted at build time); crossings between different counties are not checked.</li></ul></dd>
+<dt>Data files</dt><dd><a href="data/country.json">country.json</a> (44 KB)</dd>
+</dl>
+</article>
+<article class="layer">
+<h3>Wind and cloud forecast</h3>
+<p class="chips"><span class="chip">FORECAST</span><span class="chip">unverified</span></p>
+<dl>
+<dt>What it shows</dt><dd>100 m wind speed and total cloud cover forecast (wind100_ms in m/s; cloud_pct in percent)</dd>
+<dt>Kind of evidence</dt><dd>FORECAST. A model forecast, not a measurement.</dd>
+<dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
+<dt>Date</dt><dd>Issued 2026-10-27 06:00 UTC, valid until 2026-10-30 06:00 UTC (the map shows a forecast up to 168 hours after its issue and hides it after that). This demo is updated periodically and is not a live service.</dd>
+<dt>Source</dt><dd><a href="https://data.ecmwf.int/forecasts/20261027/06z/ifs/0p25/oper/" rel="noopener noreferrer">https://data.ecmwf.int/forecasts/20261027/06z/ifs/0p25/oper/</a></dd>
+<dt>Licence</dt><dd>CC-BY-4.0; terms: <a href="https://apps.ecmwf.int/datasets/licences/general/" rel="noopener noreferrer">https://apps.ecmwf.int/datasets/licences/general/</a><br>Weather layer: (c) 2026 ECMWF; this service is based on data and products of the European Centre for Medium-Range Weather Forecasts (ECMWF), www.ecmwf.int, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). ECMWF does not accept any liability whatsoever for any error or omission in the data, their availability, or for any loss or damage arising from their use. Modified by Sol Associates: clipped to Romania; 100 m wind speed derived from the u and v components; values rounded. This is a model forecast, not a measurement.</dd>
+<dt>How it was made</dt><dd>Run 20261027/06z (stream oper, type fc, 0.25 degree). Wind speed = sqrt(100u^2 + 100v^2) rounded to 0.1 m/s; total cloud cover scaled from a fraction to percent, rounded to 1 percent. One 0.25 degree square per grid point whose centre lies inside the Romania outline; values are the GRIB values at their native steps, with no interpolation or smoothing.</dd>
+<dt>Geography</dt><dd>Romania (grid points whose centre lies inside the country outline, including coastal waters in the outline)</dd>
+<dt>Coverage</dt><dd>447 cells x 25 forecast steps; no cell outside the outline</dd>
+<dt>What is included</dt><dd>ECMWF IFS HRES forecast grid points at 0.25 degree</dd>
+<dt>Spatial resolution</dt><dd>Native 0.25 degree grid (about 28 km north-south and 19 km east-west), no interpolation</dd>
+<dt>Time resolution</dt><dd>3-hourly forecast steps from the run time, valid times listed in the file, no interpolation to hourly</dd>
+<dt>What it does not show</dt><dd><ul><li>model forecast, not measurement</li><li>native 0.25 deg cells and 3-hourly steps, no interpolation</li><li>Each cell shows the model value at its centre grid point, drawn as a 0.25 degree square; it is not a spatial mean and not a site wind or cloud observation.</li><li>Wind is the 100 m wind speed, sqrt(100u^2 + 100v^2) in m/s rounded to 0.1; cloud is total cloud cover in percent rounded to 1.</li><li>Values are valid only at the listed step times; forecast error grows with lead time, and each run replaces the previous one.</li><li>Cells whose centre lies outside the Romania outline are dropped, so border cells can extend beyond the outline.</li><li>Not an energy yield, curtailment or grid loading estimate.</li></ul></dd>
+<dt>Data files</dt><dd><a href="data/weather_forecast.json">weather_forecast.json</a> (200 KB)</dd>
+</dl>
+</article>
+<article class="layer">
+<h3>Solar irradiation, long-term (GHI)</h3>
+<p class="chips"><span class="chip">DERIVED</span><span class="chip">unverified</span></p>
+<dl>
+<dt>What it shows</dt><dd>Global horizontal irradiation (GHI), long-term yearly average (kWh/m2/year)</dd>
+<dt>Kind of evidence</dt><dd>DERIVED. Computed from the source data by Sol Associates.</dd>
+<dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
+<dt>Date</dt><dd>As of 2019-12-06 (long-term average over 1994-2018; the package version is 2517 days old at build; limit 3650 days)</dd>
+<dt>Source</dt><dd><a href="https://globalsolaratlas.info" rel="noopener noreferrer">https://globalsolaratlas.info</a></dd>
+<dt>Licence</dt><dd>CC-BY-4.0; terms: <a href="https://datacatalog.worldbank.org/search/dataset/0038509" rel="noopener noreferrer">https://datacatalog.worldbank.org/search/dataset/0038509</a><br>Solar resource data (c) 2019 Solargis, from Global Solar Atlas 2.0 (World Bank Group, funded by ESMAP), https://globalsolaratlas.info, CC BY 4.0. Long-term yearly averages, 1994 to 2018. Modified by Sol Associates: clipped to Romania, resampled and recoloured for display. The World Bank Group, ESMAP and Solargis have not endorsed this use of the data.</dd>
+<dt>How it was made</dt><dd>Global Solar Atlas 2.0 GeoTIFF (WGS 84, 4000x2400 pixels) coloured with a viridis-like ramp between the 2nd (1126.4) and 98th (1416.4) percentile of the valid values, area-weighted down to at most 1000 pixels wide with rows spaced evenly in Web Mercator; pixels without data are transparent. Package version 2019-12-06 (map files v20191206); the GeoTIFF metadata is dated 2019-10-20.</dd>
+<dt>Geography</dt><dd>Romania and a margin (20-30 E, 43-49 N); pixels outside Romania carry no data</dd>
+<dt>Coverage</dt><dd>4878182 of 9600000 source pixels hold data (51 percent)</dd>
+<dt>What is included</dt><dd>Long-term average 1994-2018: Yearly sum of global horizontal irradiation on a flat horizontal surface.</dd>
+<dt>Spatial resolution</dt><dd>Source grid 0.00250 degrees; the PNG is area-weighted to at most 1000 pixels wide</dd>
+<dt>Time resolution</dt><dd>Long-term average over 1994-2018 (a climatology, not a forecast and not a year&#x27;s measurement)</dd>
+<dt>What it does not show</dt><dd><ul><li>Long-term average over 1994-2018: it describes typical conditions, not a specific year, and not the future.</li><li>Modelled satellite-based estimate (Solargis); it carries model uncertainty and is not a site measurement, so a bankable yield needs site data.</li><li>Not a P50, P90 or any project yield estimate.</li><li>Colour scale is clipped to the 2nd to 98th percentile of the valid values, so extremes saturate.</li></ul></dd>
+<dt>Data files</dt><dd><a href="data/solar_ghi.json">solar_ghi.json</a> (1 KB), <a href="data/solar_ghi.png">solar_ghi.png</a> (463 KB)</dd>
+</dl>
+</article>
+<article class="layer">
+<h3>PV output potential, long-term (PVOUT)</h3>
+<p class="chips"><span class="chip">DERIVED</span><span class="chip">unverified</span></p>
+<dl>
+<dt>What it shows</dt><dd>Potential photovoltaic electricity production (PVOUT), long-term yearly average (kWh/kWp/year)</dd>
+<dt>Kind of evidence</dt><dd>DERIVED. Computed from the source data by Sol Associates.</dd>
+<dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
+<dt>Date</dt><dd>As of 2019-12-06 (long-term average over 1994-2018; the package version is 2517 days old at build; limit 3650 days)</dd>
+<dt>Source</dt><dd><a href="https://globalsolaratlas.info" rel="noopener noreferrer">https://globalsolaratlas.info</a></dd>
+<dt>Licence</dt><dd>CC-BY-4.0; terms: <a href="https://datacatalog.worldbank.org/search/dataset/0038509" rel="noopener noreferrer">https://datacatalog.worldbank.org/search/dataset/0038509</a><br>Solar resource data (c) 2019 Solargis, from Global Solar Atlas 2.0 (World Bank Group, funded by ESMAP), https://globalsolaratlas.info, CC BY 4.0. Long-term yearly averages, 1994 to 2018. Modified by Sol Associates: clipped to Romania, resampled and recoloured for display. The World Bank Group, ESMAP and Solargis have not endorsed this use of the data.</dd>
+<dt>How it was made</dt><dd>Global Solar Atlas 2.0 GeoTIFF (WGS 84, 1200x720 pixels) coloured with a viridis-like ramp between the 2nd (1129.4) and 98th (1347.0) percentile of the valid values, area-weighted down to at most 1000 pixels wide with rows spaced evenly in Web Mercator; pixels without data are transparent. Package version 2019-12-06 (map files v20191206); the GeoTIFF metadata is dated 2019-10-20.</dd>
+<dt>Geography</dt><dd>Romania and a margin (20-30 E, 43-49 N); pixels outside Romania carry no data</dd>
+<dt>Coverage</dt><dd>440018 of 864000 source pixels hold data (51 percent)</dd>
+<dt>What is included</dt><dd>Long-term average 1994-2018: Yearly electricity from 1 kWp of installed PV capacity under the Global Solar Atlas reference assumptions.</dd>
+<dt>Spatial resolution</dt><dd>Source grid 0.00833 degrees; the PNG is area-weighted to at most 1000 pixels wide</dd>
+<dt>Time resolution</dt><dd>Long-term average over 1994-2018 (a climatology, not a forecast and not a year&#x27;s measurement)</dd>
+<dt>What it does not show</dt><dd><ul><li>Long-term average over 1994-2018: it describes typical conditions, not a specific year, and not the future.</li><li>Modelled satellite-based estimate (Solargis); it carries model uncertainty and is not a site measurement, so a bankable yield needs site data.</li><li>Not a P50, P90 or any project yield estimate.</li><li>Colour scale is clipped to the 2nd to 98th percentile of the valid values, so extremes saturate.</li></ul></dd>
+<dt>Data files</dt><dd><a href="data/solar_pvout.json">solar_pvout.json</a> (1 KB), <a href="data/solar_pvout.png">solar_pvout.png</a> (599 KB)</dd>
+</dl>
+</article>
+<article class="layer">
+<h3>Daily national production by fuel</h3>
+<p class="chips"><span class="chip">DERIVED</span><span class="chip">unverified</span></p>
+<dl>
+<dt>What it shows</dt><dd>Daily electricity production by fuel, Romania (ENTSO-E bidding zone RO) (MWh per local day (Europe/Bucharest))</dd>
+<dt>Kind of evidence</dt><dd>DERIVED. Computed from the source data by Sol Associates.</dd>
+<dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
+<dt>Date</dt><dd>As of 2026-10-26 (1 day old at build; limit 3 days)</dd>
+<dt>Source</dt><dd><a href="https://transparency.entsoe.eu" rel="noopener noreferrer">https://transparency.entsoe.eu</a></dd>
+<dt>Licence</dt><dd>ENTSO-E Transparency Platform Terms of Use (29/03/2023): no licence is stated for this data type; terms: <a href="https://transparencyplatform.zendesk.com/hc/en-us/articles/40921911218961-Legal-Terms-and-Conditions" rel="noopener noreferrer">https://transparencyplatform.zendesk.com/hc/en-us/articles/40921911218961-Legal-Terms-and-Conditions</a><br>Source: ENTSO-E Transparency Platform (transparency.entsoe.eu), actual generation per production type, bidding zone RO. Daily totals computed by Sol Associates from the values published; not endorsed by ENTSO-E.</dd>
+<dt>How it was made</dt><dd>Daily totals by fuel from ENTSO-E actual generation per production type (documentType A75, processType A16, domain RO) for the Europe/Bucharest local days 2026-10-20 to 2026-10-26. For each day that has a stored vintage, the energy of a fuel is the sum of mean power times interval length over the intervals that have a value (each fuel keeps its native interval and is never resampled); the totals are computed by Sol Associates and rounded to 0.1 MWh. A day without a stored vintage is empty (null), never zero. Interval series, excluded columns and raw files are not part of this layer.</dd>
+<dt>Geography</dt><dd>Romania, ENTSO-E bidding zone RO (national total)</dd>
+<dt>Coverage</dt><dd>7 of the last 7 complete local days (2026-10-20 to 2026-10-26, Europe/Bucharest)</dd>
+<dt>What is included</dt><dd>Aggregated actual generation per production type as reported to ENTSO-E; storage charging load is excluded</dd>
+<dt>Spatial resolution</dt><dd>National total, no spatial breakdown</dd>
+<dt>Time resolution</dt><dd>One total per local calendar day and fuel; no per-interval values are published</dd>
+<dt>What it does not show</dt><dd><ul><li>National totals only: Romania, ENTSO-E bidding zone RO, one total per local calendar day (Europe/Bucharest) and fuel; no per-interval values and no per-plant allocation are published.</li><li>Each total is the sum over the day of mean power times interval length, computed by Sol Associates from the actual generation per production type that ENTSO-E published; it is not a daily figure published by ENTSO-E.</li><li>An interval for which ENTSO-E published no value is left out of the sum, so a day with gaps understates its energy; the table of the layer marks such days.</li><li>Generation only: pumped-storage and battery charging load is not netted, so hydro and battery totals are gross generation.</li><li>Values are as published when fetched and ENTSO-E may revise them later.</li><li>A value of 0 means ENTSO-E reported 0 MW for that fuel in every interval of that day that has a value; it is not a gap, and it does not by itself say why. A day without a value is shown as no data.</li></ul></dd>
+<dt>Data files</dt><dd><a href="data/production_national.json">production_national.json</a> (1 KB)</dd>
+</dl>
+</article>
+<article class="layer">
+<h3>Listed ATR capacity (gov.ro list, April 2026)</h3>
+<p class="chips"><span class="chip">DERIVED</span><span class="chip">unverified</span></p>
+<dl>
+<dt>What it shows</dt><dd>Reported ATR MW by county as listed by the source, with ATR date bands by the date recorded in the list (MW)</dd>
+<dt>Kind of evidence</dt><dd>DERIVED. Computed from the source data by Sol Associates.</dd>
+<dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
+<dt>Date</dt><dd>Published 2026-04-25; the source gives no separate data date (185 days old at build; limit 400 days)</dd>
+<dt>Source</dt><dd><a href="https://gov.ro/ro/stiri/avize-tehnice-de-racordare-emise-pentru-80-000-mw-de-aproape-zece-ori-puterea-actuala-necesara-de-energie-a-romaniei" rel="noopener noreferrer">https://gov.ro/ro/stiri/avize-tehnice-de-racordare-emise-pentru-80-000-mw-de-aproape-zece-ori-puterea-actuala-necesara-de-energie-a-romaniei</a></dd>
+<dt>Licence</dt><dd>Reproduction authorised with the source named (gov.ro legal conditions); terms: <a href="https://gov.ro/ro/conditii-legale" rel="noopener noreferrer">https://gov.ro/ro/conditii-legale</a><br>Source: Guvernul României (gov.ro), Lista titularilor care dețin ATR, published 25.04.2026, reproduced with the source named; aggregated by Sol Associates SRL. The Government of Romania has not reviewed or endorsed this aggregation.</dd>
+<dt>How it was made</dt><dd>Rows of the gov.ro list of ATR holders, published on 2026-04-25, are aggregated per county. Natural persons, rows that are not generation and corrupt or MW-less rows are excluded (their numbers are withheld in this edition); county names are matched to the OSM county outlines after folding case and diacritics and through a reviewed list of alternative spellings and codes; operators are normalised to the known grid operators; statuses are restricted to a closed vocabulary. Each ATR issue date is placed in a descriptive date band by the calendar dates in the band note. MW is rounded to 0.1 per cell and totals are sums of rounded cells. The retrieval time is taken as the last-modified time of the input file as held by Sol Associates; it is not the time the source was published.</dd>
+<dt>Geography</dt><dd>Romania, county level (counties of the OSM outline layer, Bucuresti included) plus an unknown-county group (suppressed in this edition)</dd>
+<dt>Coverage</dt><dd>gov.ro list of ATR holders: 1410 ATR rows aggregated (80227.7 MW) from the list published on 2026-04-25; excluded rows are not counted here (their number is withheld in this edition)</dd>
+<dt>What is included</dt><dd>Listed ATR MW of the ATR holders on the gov.ro list, every stage as published, natural persons excluded</dd>
+<dt>Spatial resolution</dt><dd>County; rows whose county cannot be matched form the unknown-county group, which is suppressed in this edition</dd>
+<dt>Time resolution</dt><dd>One list, published on one date; the per-row ATR issue date is used only to assign date bands</dd>
+<dt>What it does not show</dt><dd><ul><li>Listed ATR MW in the source list for the selected source, status and technology: not installed capacity, not a built or connected plant, not a probability of commissioning, not MW per km2, saturation, headroom, grid loading or available capacity. Every stage is included (ATR issued, connection contract signed, works in execution, commissioned, other), so a total is not necessarily an outstanding queue.</li><li>Note that the issue date in the source may be the latest amended ATR date, not the date of the original ATR; here it is a date extracted from the ATR-number text (DERIVED; original or amendment unresolved): only a single date at the end of the text counts, and text with several dates, several ATR numbers or an amendment marker is ambiguous and the issue date unknown.</li><li>ATR date bands group source issue dates by the calendar dates in the band note; a band is never a legal assessment of any ATR. The band is set by the ATR issue date recorded in the source, which may be the date of the latest amended ATR. Under the cited acts the operative dates differ (for example the date a connection or capacity allocation request was registered, the date the operator communicated the financial guarantee value, or the date a connection contract was signed), so a band does not show which rules apply to a given ATR.</li><li>This list is one source: its figures must not be added to those of another source, because the same ATR can appear in more than one source.</li><li>MW is rounded to 0.1 per cell; county and total figures are sums of the rounded cells.</li><li>Operator names are normalised to the known grid operators (DEER means Distributie Energie Electrica Romania); any other value is shown as Other and a blank one as unknown.</li><li>Rows are matched to county names from OpenStreetMap-derived county boundaries after folding case and diacritics, then through a reviewed list of alternative spellings and codes; the number of rows matched that way is withheld in this edition. A county shown with zero MW is in the lowest class; a zero is not evidence that no ATR exists there.</li><li>Rows whose county is blank, abbreviated, names several counties or is misspelt, and cannot be matched, form an unknown-county group; it is suppressed in this edition and, in the totals, its rows and MW are counted as suppressed.</li><li>The band &quot;Issue date unknown or ambiguous&quot; holds the rows with no readable single issue date: a blank or free-text date, a text with several dates, several ATR numbers or an amendment marker (ambiguous), and a date after the day the list was published. The number of rows in each of these groups is withheld in this edition, so the band cannot be split further.</li><li>A status outside the closed vocabulary of the source is reported as Unrecognised with its MW kept and the raw value is not published; the number of such rows is withheld in this edition.</li><li>Because this list was published before 2026-05-25, the last date band is expected to be empty.</li><li>Status is Sol&#x27;s English label for the stage column of the Government&#x27;s list: &#x27;PIF planificat&#x27; and &#x27;Probe&#x27; are shown as &#x27;Works in execution&#x27; and &#x27;PIF realizat&#x27; as &#x27;Commissioned&#x27;; where the list&#x27;s detailed stage says the ATR is issued and a connection contract has not yet been requested, the row is shown as &#x27;ATR issued&#x27;. Works in execution and commissioned are not independently observed progress or present operating status. These are the stage names of the Government list as read by Sol, not the stages of the ANRE connection procedure.</li><li>The list gives a technology for only some rows: rows without one are shown as technology Unknown, which does not mean the Unknown remainder is all generation or storage, and the share of Unknown technology is withheld in this edition.</li><li>Natural persons are excluded using the flag carried by the parsed list; the number excluded is withheld in this edition.</li><li>Date conflicts between sources are NOT ASSESSED for this layer (it compares no other source): the empty band &quot;Issue date disagrees between sources&quot; does not mean the sources agree.</li><li>The Government&#x27;s list is a selection (holders with at least one megawatt in total) as published by the Government on 2026-04-25, and it may change; it covers every stage from newly issued ATRs to recent commissioning.</li><li>Rows are excluded when the source row is corrupt or its MW cannot be read; the number of such rows is withheld in this edition. Their capacity is unknown, not zero.</li><li>Counts and MW for particular groups of rows (excluded rows, rows matched through an alternative county spelling, rows with an unrecognised status, and the share of unknown technology) are not published in this edition, and neither is the split of the unknown-date band into its kinds (a blank or free-text date, an ambiguous text, a date after the day the list was published), so that the published figures are less likely to single out small groups.</li><li>The counts of rows with no readable issue date, of excluded rows and of rows without a matched county are not given in this edition: they are withheld, which is not the same as zero.</li><li>Detail is withheld or merged in this edition. Small groups are handled by threshold rules (at least 5 distinct holders per released figure, no holder above 80 percent of its MW), and figures that fail these tests are merged or withheld. These rules reduce, but cannot eliminate, the risk that a holder can be inferred when the figures are combined with the public Government list or other sources. Where the detail of a county could not be released it is merged into one remaining entry for that county, and where even that is too small the county is suppressed; national totals still include every aggregated row. The coverage figures show how much of the total MW is shown in detail, how much is merged and how much is suppressed. The same test is applied to every published figure and to the differences between published figures that isolate up to four groups of rows.</li></ul></dd>
+<dt>Data files</dt><dd><a href="data/atr_govro_2026_04_25.json">atr_govro_2026_04_25.json</a> (14 KB)</dd>
+</dl>
+</article>
+<h2>What the map does not show</h2>
+<h3>General information, not advice</h3>
+<p>The Romanian Energy Grid Atlas is published by Sol Associates SRL as general market information for professional users. It is not investment, legal, tax, regulatory or engineering advice, not an offer or recommendation, and it does not assess any project, site, grid connection approval (Aviz Tehnic de Racordare, ATR) or investment. Check the official source and take your own advice before any decision.</p>
+<h3>No guarantee</h3>
+<p>The data come from third parties and from OpenStreetMap volunteers. They may be incomplete, out of date or wrong. Unless a layer says it was checked, nothing here was checked against an operator or regulator register. Sol Associates gives no warranty of accuracy, completeness or availability and makes no promise about any outcome.</p>
+<h3>How to read the layers</h3>
+<p>Assets are as mapped in OpenStreetMap by volunteers; the map is not a census of the grid and how complete it is cannot be stated. Operator names are as tagged and may be wrong.</p>
+<p>The weather layer is a model forecast, not a measurement, and not an energy yield, curtailment or grid loading estimate.</p>
+<p>The solar layers are modelled long-term averages for 1994 to 2018, not forecasts and not a bankable yield.</p>
+<p>The production layer shows national totals of electricity generation by fuel for the seven complete local days up to the build date, computed by Sol Associates from values published on the ENTSO-E Transparency Platform. It is not a measurement by Sol, not a forecast, and says nothing about prices, trading, curtailment or grid loading; a day with intervals that have no value understates its energy, and a day without data is empty, not zero.</p>
+<p>The ATR layer shows connection-approval capacity (MW) listed by the Government in a list published on one date, summed by county. It is not installed capacity, grid loading, available or free capacity or a probability of commissioning, and it does not show whether any ATR is valid, eligible or subject to any rule.</p>
+<p>Date bands group ATRs by the date recorded for them in the Government list, which can be the date of the latest amended ATR rather than of the original. They are descriptive. They do not show whether a project meets any rule or deadline, and Sol Associates draws no eligibility conclusion from them.</p>
+<h3>Liability</h3>
+<p>To the extent Romanian law permits, Sol Associates SRL accepts no liability for decisions taken or losses suffered on the basis of this map. Nothing here limits liability that cannot be limited under Romanian law, including liability for intent or gross negligence.</p>
+<h2>Credits and licences</h2>
+<p>Contains information from <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">OpenStreetMap</a>, which is made available under the <a href="https://opendatacommons.org/licenses/odbl/1-0/" rel="noopener noreferrer">Open Database Licence (ODbL)</a>. © OpenStreetMap contributors. Weather layer: (c) 2026 ECMWF; this service is based on data and products of the <a href="https://www.ecmwf.int" rel="noopener noreferrer">European Centre for Medium-Range Weather Forecasts (ECMWF)</a>, CC BY 4.0. Solar layers: © Solargis, <a href="https://globalsolaratlas.info" rel="noopener noreferrer">Global Solar Atlas</a> (World Bank Group, ESMAP), CC BY 4.0. Production totals: source <a href="https://transparency.entsoe.eu" rel="noopener noreferrer">ENTSO-E Transparency Platform</a>, actual generation per production type; daily totals computed by Sol Associates; not endorsed by ENTSO-E. Connection approvals: Guvernul României (gov.ro), aggregated by Sol Associates.</p>
+<p>Weather layer: (c) 2026 ECMWF; this service is based on data and products of the <a href="https://www.ecmwf.int" rel="noopener noreferrer">European Centre for Medium-Range Weather Forecasts (ECMWF)</a>. Source: www.ecmwf.int. This ECMWF data is published under a Creative Commons Attribution 4.0 International licence (<a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener noreferrer">CC BY 4.0</a>). ECMWF does not accept any liability whatsoever for any error or omission in the data, their availability, or for any loss or damage arising from their use. Modified by Sol Associates: clipped to Romania; 100 m wind speed derived from the u and v components; values rounded. No previous modifications are known to us. This is a model forecast, not a measurement.</p>
+<p>Solar resource data © 2019 Solargis, from <a href="https://globalsolaratlas.info" rel="noopener noreferrer">Global Solar Atlas</a> 2.0 (World Bank Group, funded by ESMAP). Licensed under Creative Commons Attribution 4.0 International (<a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener noreferrer">CC BY 4.0</a>). Long-term yearly averages, 1994 to 2018. Modified by Sol Associates: clipped to Romania, resampled and recoloured for display (one image per layer, colour scale clipped to the 2nd to 98th percentile of the values). The World Bank Group, ESMAP and Solargis have not endorsed this use of the data. The licensor&#x27;s additional dispute-resolution terms apply to this data; they are in LICENSE-DATA.txt.</p>
+<p>Connection approvals (ATR): source Guvernul României (gov.ro), Lista titularilor care dețin ATR, published 25.04.2026, reproduced with the source named under the Government&#x27;s <a href="https://gov.ro/ro/conditii-legale" rel="noopener noreferrer">legal conditions</a>. The Government&#x27;s list is a selection (holders of at least 1 MW in total) as published on that date; it may change, and it covers every stage from newly issued ATRs to recent commissioning. Aggregated by county by Sol Associates SRL. Rows identified as natural persons are excluded. Small groups are handled by threshold rules (at least 5 distinct holders per released figure, no holder above 80 percent of its MW), and figures that fail these tests are merged or withheld. These rules reduce, but cannot eliminate, the risk that a holder can be inferred when the figures are combined with the public Government list or other sources. The Government of Romania has not reviewed or endorsed this aggregation.</p>
+<p>The map data files are in the data folder of this site; their licences are in LICENSE-DATA.txt and data/README-LICENCES.txt. See also: <a href="https://sol-associates.ro/legal/disclaimer/" rel="noopener noreferrer">Disclaimer</a>, <a href="https://sol-associates.ro/legal/terms/" rel="noopener noreferrer">Terms</a> (for the paid SEAP Radar subscription only), <a href="https://sol-associates.ro/legal/privacy/" rel="noopener noreferrer">Privacy Notice</a> and <a href="https://sol-associates.ro/legal/attribution/" rel="noopener noreferrer">Attribution</a> on sol-associates.ro/legal/.</p>
+<p>This page sets no cookies and uses no analytics or advertising. If you use the light and dark switch, your choice is stored in your browser on your device only.</p>
+<p>This demo page is hosted via GitHub Pages, which keeps server logs that include the visitor&#x27;s IP address. GitHub&#x27;s privacy statement names GitHub, Inc. or GitHub B.V. as the data controller, depending on the service. Drawing the base map sends your IP address and browser details to the OpenStreetMap Foundation&#x27;s tile servers (tile.openstreetmap.org). The tiles are delivered through a content delivery network operated for the OpenStreetMap Foundation, which also receives the request. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer">GitHub privacy statement</a>, the OpenStreetMap Foundation <a href="https://osmfoundation.org/wiki/Privacy_Policy" rel="noopener noreferrer">privacy policy</a> and the OpenStreetMap <a href="https://operations.osmfoundation.org/policies/tiles/" rel="noopener noreferrer">tile usage policy</a>.</p>
+<p>Clicking &#x27;Find on Google Maps&#x27; or a link to another site sends the place name and county you clicked to that site.</p>
+<p>Links to Sol Associates pages carry a campaign tag (utm_source=grid-atlas) so that we can count visits from this map, and those pages see the address of this site as the referrer.</p>
+<p>Controller: Sol Associates SRL. Details and your rights: <a href="https://sol-associates.ro/legal/privacy/" rel="noopener noreferrer">Privacy Notice</a>.</p>
+<p><a href="https://leafletjs.com" rel="noopener noreferrer">Leaflet</a> 1.9.4, a JavaScript library for interactive maps, is used under the BSD 2-Clause licence. Copyright (c) 2010-2023, Volodymyr Agafonkin. Copyright (c) 2010-2011, CloudMade. The full licence text is in vendor/LICENSE-LEAFLET.txt.</p>
+<p>Base map: OpenStreetMap standard tile layer, © <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">OpenStreetMap</a> contributors. The tiles are delivered to your browser through a content delivery network operated for the OpenStreetMap Foundation, under its <a href="https://operations.osmfoundation.org/policies/tiles/" rel="noopener noreferrer">tile usage policy</a>.</p>
+<p>Licence texts: <a href="LICENSE-DATA.txt">LICENSE-DATA.txt</a> and <a href="data/README-LICENCES.txt">data/README-LICENCES.txt</a> (the notice for the OpenStreetMap-derived files).</p>
+<p>Sol Associates publishes how its own intelligence products are made on its <a href="https://sol-associates.ro/methods/" rel="noopener noreferrer">methods page</a>.</p>
+</main>
+<footer>
+<p>Published by Sol Associates SRL. Registered office: Strada Drumul Mare, nr. 608, camera 2, comuna Băneşti, judeţul Prahova, România. Trade Registry no. J29/2713/2023. Fiscal code (CUI): RO24172577. E-mail: contact@sol-associates.ro. Contact form: https://sol-associates.ro/contact/. This service is free of charge.</p>
+<p>Spotted an error or want an entry corrected? Write to contact@sol-associates.ro. Errors in OpenStreetMap data are best fixed at openstreetmap.org, and a later build may pick up the correction. Privacy requests go to the same address.</p>
+<p><a href="https://sol-associates.ro/legal/terms/" rel="noopener noreferrer">Terms (SEAP Radar)</a> | <a href="https://sol-associates.ro/legal/privacy/" rel="noopener noreferrer">Privacy</a> | <a href="https://sol-associates.ro/legal/disclaimer/" rel="noopener noreferrer">Disclaimer</a> | <a href="https://sol-associates.ro/legal/attribution/" rel="noopener noreferrer">Attribution</a> | <a href="https://sol-associates.ro/methods/" rel="noopener noreferrer">Methods</a></p>
+<p><a href="index.html">Back to the map</a></p>
+</footer>
+</body>
+</html>

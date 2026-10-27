@@ -1,0 +1,60 @@
+Romanian Energy Grid Atlas - data licence notice
+
+Edition: PUBLIC, DEMO edition. Build 216630799f1e, built 2026-10-27T17:28:47Z.
+
+The files in the data folder are derived from the sources below. Each layer keeps the licence of its source. Sol Associates changed the data
+(selection, simplification, rounding and filtering of text fields); the method of each layer is stated in the page.
+
+OpenStreetMap layers (Open Database Licence, ODbL 1.0)
+  Layers: Country outline; County outlines; Generators outside a plant; Power lines; Power plants; Substations
+  Contains information from OpenStreetMap, made available under the Open Database License (ODbL) 1.0.
+  (c) OpenStreetMap contributors, ODbL. See https://www.openstreetmap.org/copyright
+  The data files of these layers are a derived database and are offered under the ODbL 1.0: https://opendatacommons.org/licenses/odbl/1-0/
+
+CC-BY-4.0
+  Layers: Wind and cloud forecast
+  Terms: https://apps.ecmwf.int/datasets/licences/general/
+  Attribution: Weather layer: (c) 2026 ECMWF; this service is based on data and products of the European Centre for Medium-Range Weather Forecasts (ECMWF), www.ecmwf.int, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). ECMWF does not accept any liability whatsoever for any error or omission in the data, their availability, or for any loss or damage arising from their use. Modified by Sol Associates: clipped to Romania; 100 m wind speed derived from the u and v components; values rounded. This is a model forecast, not a measurement.
+
+CC-BY-4.0
+  Layers: PV output potential, long-term (PVOUT); Solar irradiation, long-term (GHI)
+  Terms: https://datacatalog.worldbank.org/search/dataset/0038509
+  Attribution: Solar resource data (c) 2019 Solargis, from Global Solar Atlas 2.0 (World Bank Group, funded by ESMAP), https://globalsolaratlas.info, CC BY 4.0. Long-term yearly averages, 1994 to 2018. Modified by Sol Associates: clipped to Romania, resampled and recoloured for display. The World Bank Group, ESMAP and Solargis have not endorsed this use of the data.
+
+ENTSO-E Transparency Platform Terms of Use (29/03/2023): no licence is stated for this data type
+  Layers: Daily national production by fuel
+  Terms: https://transparencyplatform.zendesk.com/hc/en-us/articles/40921911218961-Legal-Terms-and-Conditions
+  Attribution: Source: ENTSO-E Transparency Platform (transparency.entsoe.eu), actual generation per production type, bidding zone RO. Daily totals computed by Sol Associates from the values published; not endorsed by ENTSO-E.
+
+Reproduction authorised with the source named (gov.ro legal conditions)
+  Layers: Listed ATR capacity (gov.ro list, April 2026)
+  Terms: https://gov.ro/ro/conditii-legale
+  Attribution: Source: Guvernul României (gov.ro), Lista titularilor care dețin ATR, published 25.04.2026, reproduced with the source named; aggregated by Sol Associates SRL. The Government of Romania has not reviewed or endorsed this aggregation.
+
+OpenStreetMap-derived data files: the ODbL notice, the offer of the derivative database and the changes made are in data/README-LICENCES.txt.
+
+Weather forecast (ECMWF)
+  Copyright (c) 2026 European Centre for Medium-Range Weather Forecasts (ECMWF). Source: www.ecmwf.int. This data is published under a Creative Commons Attribution 4.0 International licence (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/ Disclaimer: ECMWF does not accept any liability whatsoever for any error or omission in the data, their availability, or for any loss or damage arising from their use. Modified: clipped to Romania, wind speed derived from the 100 m u and v components, values rounded. Terms of Use: https://apps.ecmwf.int/datasets/licences/general/
+
+Solar layers (Global Solar Atlas)
+  Solar resource data (c) 2019 Solargis, from Global Solar Atlas 2.0 (World Bank Group, funded by ESMAP), https://globalsolaratlas.info
+  Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+  Long-term yearly averages, 1994 to 2018. Modified by Sol Associates: clipped to Romania, resampled and recoloured for display (one image per layer, colour scale clipped to the 2nd to 98th percentile of the values).
+  The World Bank Group, ESMAP and Solargis have not endorsed this use of the data.
+  The licensor's additional dispute-resolution terms apply to this data; they are reproduced below.
+
+  Licensor's notice, copied unchanged from the metadata delivered with the data (the Copyright element):
+  Copyright: Solar resource data © 2019 Solargis. The data is published in Global Solar Atlas under a Creative Commons 4.0 Attribution International license, CC BY 4.0 with the following mandatory and binding addition:
+  Any and all disputes arising under this License that cannot be settled amicably shall be submitted to mediation in accordance with the WIPO Mediation Rules 3 in effect at the time the work was published. If the request for mediation is not resolved within forty-five (45) days of the request, either You or the Licensor may, pursuant to a notice of arbitration communicated by reasonable means to the other party refer the dispute to final and binding arbitration to be conducted in accordance with UNCITRAL Arbitration Rules as then in force. The arbitral tribunal shall consist of a sole arbitrator and the language of the proceedings shall be English unless otherwise agreed. The place of arbitration shall be where the Licensor has its headquarters. The arbitral proceedings shall be conducted remotely (e.g., via telephone conference or written submissions) whenever practicable, or held at the World Bank headquarters in Washington DC.
+
+Connection approvals (Government of Romania list)
+  Source: Guvernul României (gov.ro), Lista titularilor care dețin ATR, published 25.04.2026.
+  Reproduced with the source named, under the Government's legal conditions (https://gov.ro/ro/conditii-legale).
+  The Government's list is a selection (holders of at least 1 MW in total) as published on that date; it may change, and it covers every stage from newly issued ATRs to recent commissioning.
+  Aggregated by county by Sol Associates SRL. Rows identified as natural persons are excluded. Small groups are handled by threshold rules (at least 5 distinct holders per released figure, no holder above 80 percent of its MW), and figures that fail these tests are merged or withheld. These rules reduce, but cannot eliminate, the risk that a holder can be inferred when the figures are combined with the public Government list or other sources.
+  The Government of Romania has not reviewed or endorsed this aggregation.
+
+Base map (OpenStreetMap standard tile layer)
+  Base map: this edition draws the OpenStreetMap standard tile layer (tiles from tile.openstreetmap.org, (c) OpenStreetMap contributors). The tiles are not part of the data files of this folder; they are used under the OpenStreetMap Foundation tile usage policy: https://operations.osmfoundation.org/policies/tiles/
+
+Leaflet 1.9.4 (vendor folder) is distributed under the BSD 2-Clause licence, see vendor/LICENSE-LEAFLET.txt.

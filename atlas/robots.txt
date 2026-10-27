@@ -1,0 +1,4 @@
+# Romanian Energy Grid Atlas
+User-agent: *
+Allow: /
+Sitemap: https://sol-associates.github.io/sol-signals-site/atlas/sitemap.xml
