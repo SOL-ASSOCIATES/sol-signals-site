@@ -36,7 +36,7 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <header>
 <p><a href="index.html">Back to the map</a></p>
 <h1>Method and sources</h1>
-<p class="edition">DEMO edition | Build 87400ff0f861 | 2026-10-27 19:16 UTC</p>
+<p class="edition">DEMO edition | Build 3ed40dc61b96 | 2026-11-04 19:56 UTC</p>
 </header>
 <main>
 <p class="lead">Explore Romania&#x27;s mapped power plants, substations and grid, and county totals from the published list of grid connection approvals (ATR).</p>
@@ -57,10 +57,10 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <dt>What it shows</dt><dd>Power plants as mapped in OpenStreetMap (MW)</dd>
 <dt>Kind of evidence</dt><dd>OBSERVED. As published or as mapped in the source. Sol Associates has not checked these values against another source.</dd>
 <dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
-<dt>Date</dt><dd>As of 2026-10-27 (0 days old at build; limit 14 days)</dd>
+<dt>Date</dt><dd>As of 2026-11-04 (0 days old at build; limit 14 days)</dd>
 <dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
 <dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
-<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-27.</dd>
+<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-11-04.</dd>
 <dt>Geography</dt><dd>Romania (OSM area ISO3166-1=RO, admin_level=2)</dd>
 <dt>Coverage</dt><dd>Everything OSM mapped inside Romania at the snapshot date; mapping completeness is unknown</dd>
 <dt>What is included</dt><dd>power=plant nodes, ways and relations</dd>
@@ -77,17 +77,17 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <dt>What it shows</dt><dd>Generators not assigned to a mapped plant (MW)</dd>
 <dt>Kind of evidence</dt><dd>OBSERVED. As published or as mapped in the source. Sol Associates has not checked these values against another source.</dd>
 <dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
-<dt>Date</dt><dd>As of 2026-10-27 (0 days old at build; limit 14 days)</dd>
+<dt>Date</dt><dd>As of 2026-11-04 (0 days old at build; limit 14 days)</dd>
 <dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
 <dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
-<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-27.</dd>
+<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-11-04.</dd>
 <dt>Geography</dt><dd>Romania (OSM area ISO3166-1=RO, admin_level=2)</dd>
 <dt>Coverage</dt><dd>Everything OSM mapped inside Romania at the snapshot date; mapping completeness is unknown</dd>
 <dt>What is included</dt><dd>power=generator nodes and ways outside every plant</dd>
 <dt>Spatial resolution</dt><dd>Vector geometry as mapped, coordinates rounded to 5 decimals (about 1 m)</dd>
 <dt>Time resolution</dt><dd>Snapshot of the OSM database at as_of (a single time, no history)</dd>
 <dt>What it does not show</dt><dd><ul><li>OSM tags are used as mapped by volunteers; this is not a census of grid assets and nothing was checked against an operator or regulator register.</li><li>Unknown voltage, fuel, MW and status are kept as unknown and never defaulted.</li><li>Generators in a plant relation or inside a plant polygon are counted in assets_plants, not here; polygon generators are shown at their centroid.</li><li>County is the county containing the representative point (the middle vertex for lines) of boundaries simplified to about 0.005 degrees, so features within about 500 m of a border can be assigned to the neighbouring county.</li></ul></dd>
-<dt>Data files</dt><dd><a href="data/assets_generators_unassigned.json">assets_generators_unassigned.json</a> (209 KB)</dd>
+<dt>Data files</dt><dd><a href="data/assets_generators_unassigned.json">assets_generators_unassigned.json</a> (211 KB)</dd>
 </dl>
 </article>
 <article class="layer">
@@ -97,17 +97,17 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <dt>What it shows</dt><dd>Substations as mapped in OpenStreetMap (kV)</dd>
 <dt>Kind of evidence</dt><dd>OBSERVED. As published or as mapped in the source. Sol Associates has not checked these values against another source.</dd>
 <dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
-<dt>Date</dt><dd>As of 2026-10-27 (0 days old at build; limit 14 days)</dd>
+<dt>Date</dt><dd>As of 2026-11-04 (0 days old at build; limit 14 days)</dd>
 <dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
 <dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
-<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-27.</dd>
+<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-11-04.</dd>
 <dt>Geography</dt><dd>Romania (OSM area ISO3166-1=RO, admin_level=2)</dd>
 <dt>Coverage</dt><dd>Everything OSM mapped inside Romania at the snapshot date; mapping completeness is unknown</dd>
 <dt>What is included</dt><dd>power=substation nodes, ways and relations</dd>
 <dt>Spatial resolution</dt><dd>Vector geometry as mapped, coordinates rounded to 5 decimals (about 1 m)</dd>
 <dt>Time resolution</dt><dd>Snapshot of the OSM database at as_of (a single time, no history)</dd>
 <dt>What it does not show</dt><dd><ul><li>OSM tags are used as mapped by volunteers; this is not a census of grid assets and nothing was checked against an operator or regulator register.</li><li>Unknown voltage, fuel, MW and status are kept as unknown and never defaulted.</li><li>voltage_class is the class of the highest listed voltage; OSM voltage is in volts, values below 1 kV stay fractional.</li><li>Substation polygons are shown at their centroid.</li><li>County is the county containing the representative point (the middle vertex for lines) of boundaries simplified to about 0.005 degrees, so features within about 500 m of a border can be assigned to the neighbouring county.</li></ul></dd>
-<dt>Data files</dt><dd><a href="data/assets_substations.json">assets_substations.json</a> (406 KB)</dd>
+<dt>Data files</dt><dd><a href="data/assets_substations.json">assets_substations.json</a> (408 KB)</dd>
 </dl>
 </article>
 <article class="layer">
@@ -117,17 +117,17 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <dt>What it shows</dt><dd>Power lines, minor lines and cables as mapped in OpenStreetMap (kV)</dd>
 <dt>Kind of evidence</dt><dd>OBSERVED. As published or as mapped in the source. Sol Associates has not checked these values against another source.</dd>
 <dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
-<dt>Date</dt><dd>As of 2026-10-27 (0 days old at build; limit 14 days)</dd>
+<dt>Date</dt><dd>As of 2026-11-04 (0 days old at build; limit 14 days)</dd>
 <dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
 <dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
-<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-10-27.</dd>
+<dt>How it was made</dt><dd>Tags parsed as mapped (voltage volts to kV, output to MW), polygons reduced to centroids, generators grouped into plants, county looked up from the counties layer; raw vintage 2026-11-04.</dd>
 <dt>Geography</dt><dd>Romania (OSM area ISO3166-1=RO, admin_level=2)</dd>
 <dt>Coverage</dt><dd>Everything OSM mapped inside Romania at the snapshot date; mapping completeness is unknown</dd>
 <dt>What is included</dt><dd>power=line, power=minor_line and power=cable ways</dd>
 <dt>Spatial resolution</dt><dd>Vector geometry as mapped, coordinates rounded to 5 decimals (about 1 m)</dd>
 <dt>Time resolution</dt><dd>Snapshot of the OSM database at as_of (a single time, no history)</dd>
 <dt>What it does not show</dt><dd><ul><li>OSM tags are used as mapped by volunteers; this is not a census of grid assets and nothing was checked against an operator or regulator register.</li><li>Unknown voltage, fuel, MW and status are kept as unknown and never defaulted.</li><li>voltage_class is the class of the highest listed voltage; a line with several circuits is shown once at its highest voltage.</li><li>Lines that cross the border are kept whole.</li><li>County is the county containing the representative point (the middle vertex for lines) of boundaries simplified to about 0.005 degrees, so features within about 500 m of a border can be assigned to the neighbouring county.</li></ul></dd>
-<dt>Data files</dt><dd><a href="data/assets_lines_low.json">assets_lines_low.json</a> (830 KB), <a href="data/assets_lines_high.json">assets_lines_high.json</a> (1.7 MB)</dd>
+<dt>Data files</dt><dd><a href="data/assets_lines_low.json">assets_lines_low.json</a> (836 KB), <a href="data/assets_lines_high.json">assets_lines_high.json</a> (1.7 MB)</dd>
 </dl>
 </article>
 <article class="layer">
@@ -137,7 +137,7 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <dt>What it shows</dt><dd>County outlines (OSM admin_level=4) (geometry)</dd>
 <dt>Kind of evidence</dt><dd>DERIVED. Computed from the source data by Sol Associates.</dd>
 <dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
-<dt>Date</dt><dd>As of 2026-10-27 (0 days old at build; limit 14 days)</dd>
+<dt>Date</dt><dd>As of 2026-11-04 (0 days old at build; limit 14 days)</dd>
 <dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
 <dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
 <dt>How it was made</dt><dd>Relation outer and inner member ways simplified once per way id (Douglas-Peucker 0.005 degrees or finer where a ring would cross itself), stitched into rings, rounded to 5 decimals.</dd>
@@ -157,7 +157,7 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <dt>What it shows</dt><dd>Romania outline (OSM admin_level=2) (geometry)</dd>
 <dt>Kind of evidence</dt><dd>DERIVED. Computed from the source data by Sol Associates.</dd>
 <dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
-<dt>Date</dt><dd>As of 2026-10-27 (0 days old at build; limit 14 days)</dd>
+<dt>Date</dt><dd>As of 2026-11-04 (0 days old at build; limit 14 days)</dd>
 <dt>Source</dt><dd><a href="https://www.openstreetmap.org" rel="noopener noreferrer">https://www.openstreetmap.org</a></dd>
 <dt>Licence</dt><dd>ODbL-1.0; terms: <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">https://www.openstreetmap.org/copyright</a><br>(c) OpenStreetMap contributors, ODbL</dd>
 <dt>How it was made</dt><dd>Relation outer and inner member ways simplified once per way id (Douglas-Peucker 0.005 degrees or finer where a ring would cross itself), stitched into rings, rounded to 5 decimals.</dd>
@@ -177,17 +177,17 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <dt>What it shows</dt><dd>100 m wind speed and total cloud cover forecast (wind100_ms in m/s; cloud_pct in percent)</dd>
 <dt>Kind of evidence</dt><dd>FORECAST. A model forecast, not a measurement.</dd>
 <dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
-<dt>Date</dt><dd>Issued 2026-10-27 06:00 UTC, valid until 2026-10-30 06:00 UTC (the map shows a forecast up to 168 hours after its issue and hides it after that). This demo is updated periodically and is not a live service.</dd>
-<dt>Source</dt><dd><a href="https://data.ecmwf.int/forecasts/20261027/06z/ifs/0p25/oper/" rel="noopener noreferrer">https://data.ecmwf.int/forecasts/20261027/06z/ifs/0p25/oper/</a></dd>
+<dt>Date</dt><dd>Issued 2026-11-04 12:00 UTC, valid until 2026-11-07 12:00 UTC (the map shows a forecast up to 168 hours after its issue and hides it after that). This demo is updated periodically and is not a live service.</dd>
+<dt>Source</dt><dd><a href="https://data.ecmwf.int/forecasts/20261104/12z/ifs/0p25/oper/" rel="noopener noreferrer">https://data.ecmwf.int/forecasts/20261104/12z/ifs/0p25/oper/</a></dd>
 <dt>Licence</dt><dd>CC-BY-4.0; terms: <a href="https://apps.ecmwf.int/datasets/licences/general/" rel="noopener noreferrer">https://apps.ecmwf.int/datasets/licences/general/</a><br>Weather layer: (c) 2026 ECMWF; this service is based on data and products of the European Centre for Medium-Range Weather Forecasts (ECMWF), www.ecmwf.int, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). ECMWF does not accept any liability whatsoever for any error or omission in the data, their availability, or for any loss or damage arising from their use. Modified by Sol Associates: clipped to Romania; 100 m wind speed derived from the u and v components; values rounded. This is a model forecast, not a measurement.</dd>
-<dt>How it was made</dt><dd>Run 20261027/06z (stream oper, type fc, 0.25 degree). Wind speed = sqrt(100u^2 + 100v^2) rounded to 0.1 m/s; total cloud cover scaled from a fraction to percent, rounded to 1 percent. One 0.25 degree square per grid point whose centre lies inside the Romania outline; values are the GRIB values at their native steps, with no interpolation or smoothing.</dd>
+<dt>How it was made</dt><dd>Run 20261104/12z (stream oper, type fc, 0.25 degree). Wind speed = sqrt(100u^2 + 100v^2) rounded to 0.1 m/s; total cloud cover scaled from a fraction to percent, rounded to 1 percent. One 0.25 degree square per grid point whose centre lies inside the Romania outline; values are the GRIB values at their native steps, with no interpolation or smoothing.</dd>
 <dt>Geography</dt><dd>Romania (grid points whose centre lies inside the country outline, including coastal waters in the outline)</dd>
 <dt>Coverage</dt><dd>447 cells x 25 forecast steps; no cell outside the outline</dd>
 <dt>What is included</dt><dd>ECMWF IFS HRES forecast grid points at 0.25 degree</dd>
 <dt>Spatial resolution</dt><dd>Native 0.25 degree grid (about 28 km north-south and 19 km east-west), no interpolation</dd>
 <dt>Time resolution</dt><dd>3-hourly forecast steps from the run time, valid times listed in the file, no interpolation to hourly</dd>
 <dt>What it does not show</dt><dd><ul><li>model forecast, not measurement</li><li>native 0.25 deg cells and 3-hourly steps, no interpolation</li><li>Each cell shows the model value at its centre grid point, drawn as a 0.25 degree square; it is not a spatial mean and not a site wind or cloud observation.</li><li>Wind is the 100 m wind speed, sqrt(100u^2 + 100v^2) in m/s rounded to 0.1; cloud is total cloud cover in percent rounded to 1.</li><li>Values are valid only at the listed step times; forecast error grows with lead time, and each run replaces the previous one.</li><li>Cells whose centre lies outside the Romania outline are dropped, so border cells can extend beyond the outline.</li><li>Not an energy yield, curtailment or grid loading estimate.</li></ul></dd>
-<dt>Data files</dt><dd><a href="data/weather_forecast.json">weather_forecast.json</a> (200 KB)</dd>
+<dt>Data files</dt><dd><a href="data/weather_forecast.json">weather_forecast.json</a> (192 KB)</dd>
 </dl>
 </article>
 <article class="layer">
@@ -197,7 +197,7 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <dt>What it shows</dt><dd>Global horizontal irradiation (GHI), long-term yearly average (kWh/m2/year)</dd>
 <dt>Kind of evidence</dt><dd>DERIVED. Computed from the source data by Sol Associates.</dd>
 <dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
-<dt>Date</dt><dd>As of 2019-12-06 (long-term average over 1994-2018; the package version is 2517 days old at build; limit 3650 days)</dd>
+<dt>Date</dt><dd>As of 2019-12-06 (long-term average over 1994-2018; the package version is 2525 days old at build; limit 3650 days)</dd>
 <dt>Source</dt><dd><a href="https://globalsolaratlas.info" rel="noopener noreferrer">https://globalsolaratlas.info</a></dd>
 <dt>Licence</dt><dd>CC-BY-4.0; terms: <a href="https://datacatalog.worldbank.org/search/dataset/0038509" rel="noopener noreferrer">https://datacatalog.worldbank.org/search/dataset/0038509</a><br>Solar resource data (c) 2019 Solargis, from Global Solar Atlas 2.0 (World Bank Group, funded by ESMAP), https://globalsolaratlas.info, CC BY 4.0. Long-term yearly averages, 1994 to 2018. Modified by Sol Associates: clipped to Romania, resampled and recoloured for display. The World Bank Group, ESMAP and Solargis have not endorsed this use of the data.</dd>
 <dt>How it was made</dt><dd>Global Solar Atlas 2.0 GeoTIFF (WGS 84, 4000x2400 pixels) coloured with a viridis-like ramp between the 2nd (1126.4) and 98th (1416.4) percentile of the valid values, area-weighted down to at most 1000 pixels wide with rows spaced evenly in Web Mercator; pixels without data are transparent. Package version 2019-12-06 (map files v20191206); the GeoTIFF metadata is dated 2019-10-20.</dd>
@@ -217,7 +217,7 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <dt>What it shows</dt><dd>Potential photovoltaic electricity production (PVOUT), long-term yearly average (kWh/kWp/year)</dd>
 <dt>Kind of evidence</dt><dd>DERIVED. Computed from the source data by Sol Associates.</dd>
 <dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
-<dt>Date</dt><dd>As of 2019-12-06 (long-term average over 1994-2018; the package version is 2517 days old at build; limit 3650 days)</dd>
+<dt>Date</dt><dd>As of 2019-12-06 (long-term average over 1994-2018; the package version is 2525 days old at build; limit 3650 days)</dd>
 <dt>Source</dt><dd><a href="https://globalsolaratlas.info" rel="noopener noreferrer">https://globalsolaratlas.info</a></dd>
 <dt>Licence</dt><dd>CC-BY-4.0; terms: <a href="https://datacatalog.worldbank.org/search/dataset/0038509" rel="noopener noreferrer">https://datacatalog.worldbank.org/search/dataset/0038509</a><br>Solar resource data (c) 2019 Solargis, from Global Solar Atlas 2.0 (World Bank Group, funded by ESMAP), https://globalsolaratlas.info, CC BY 4.0. Long-term yearly averages, 1994 to 2018. Modified by Sol Associates: clipped to Romania, resampled and recoloured for display. The World Bank Group, ESMAP and Solargis have not endorsed this use of the data.</dd>
 <dt>How it was made</dt><dd>Global Solar Atlas 2.0 GeoTIFF (WGS 84, 1200x720 pixels) coloured with a viridis-like ramp between the 2nd (1129.4) and 98th (1347.0) percentile of the valid values, area-weighted down to at most 1000 pixels wide with rows spaced evenly in Web Mercator; pixels without data are transparent. Package version 2019-12-06 (map files v20191206); the GeoTIFF metadata is dated 2019-10-20.</dd>
@@ -237,12 +237,12 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <dt>What it shows</dt><dd>Daily electricity production by fuel, Romania (ENTSO-E bidding zone RO) (MWh per local day (Europe/Bucharest))</dd>
 <dt>Kind of evidence</dt><dd>DERIVED. Computed from the source data by Sol Associates.</dd>
 <dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
-<dt>Date</dt><dd>As of 2026-10-26 (1 day old at build; limit 3 days)</dd>
+<dt>Date</dt><dd>As of 2026-11-03 (1 day old at build; limit 3 days)</dd>
 <dt>Source</dt><dd><a href="https://transparency.entsoe.eu" rel="noopener noreferrer">https://transparency.entsoe.eu</a></dd>
 <dt>Licence</dt><dd>ENTSO-E Transparency Platform Terms of Use (29/03/2023): no licence is stated for this data type; terms: <a href="https://transparencyplatform.zendesk.com/hc/en-us/articles/40921911218961-Legal-Terms-and-Conditions" rel="noopener noreferrer">https://transparencyplatform.zendesk.com/hc/en-us/articles/40921911218961-Legal-Terms-and-Conditions</a><br>Source: ENTSO-E Transparency Platform (transparency.entsoe.eu), actual generation per production type, bidding zone RO. Daily totals computed by Sol Associates from the values published; not endorsed by ENTSO-E.</dd>
-<dt>How it was made</dt><dd>Daily totals by fuel from ENTSO-E actual generation per production type (documentType A75, processType A16, domain RO) for the Europe/Bucharest local days 2026-10-20 to 2026-10-26. For each day that has a stored vintage, the energy of a fuel is the sum of mean power times interval length over the intervals that have a value (each fuel keeps its native interval and is never resampled); the totals are computed by Sol Associates and rounded to 0.1 MWh. A day without a stored vintage is empty (null), never zero. Interval series, excluded columns and raw files are not part of this layer.</dd>
+<dt>How it was made</dt><dd>Daily totals by fuel from ENTSO-E actual generation per production type (documentType A75, processType A16, domain RO) for the Europe/Bucharest local days 2026-10-28 to 2026-11-03. For each day that has a stored vintage, the energy of a fuel is the sum of mean power times interval length over the intervals that have a value (each fuel keeps its native interval and is never resampled); the totals are computed by Sol Associates and rounded to 0.1 MWh. A day without a stored vintage is empty (null), never zero. Interval series, excluded columns and raw files are not part of this layer.</dd>
 <dt>Geography</dt><dd>Romania, ENTSO-E bidding zone RO (national total)</dd>
-<dt>Coverage</dt><dd>7 of the last 7 complete local days (2026-10-20 to 2026-10-26, Europe/Bucharest)</dd>
+<dt>Coverage</dt><dd>7 of the last 7 complete local days (2026-10-28 to 2026-11-03, Europe/Bucharest)</dd>
 <dt>What is included</dt><dd>Aggregated actual generation per production type as reported to ENTSO-E; storage charging load is excluded</dd>
 <dt>Spatial resolution</dt><dd>National total, no spatial breakdown</dd>
 <dt>Time resolution</dt><dd>One total per local calendar day and fuel; no per-interval values are published</dd>
@@ -257,7 +257,7 @@ footer { color: var(--ink-2); font-size: .85rem; border-top: 1px solid var(--lin
 <dt>What it shows</dt><dd>Reported ATR MW by county as listed by the source, with ATR date bands by the date recorded in the list (MW)</dd>
 <dt>Kind of evidence</dt><dd>DERIVED. Computed from the source data by Sol Associates.</dd>
 <dt>Verification</dt><dd>unverified. No independent check of these values has been made.</dd>
-<dt>Date</dt><dd>Published 2026-04-25; the source gives no separate data date (185 days old at build; limit 400 days)</dd>
+<dt>Date</dt><dd>Published 2026-04-25; the source gives no separate data date (193 days old at build; limit 400 days)</dd>
 <dt>Source</dt><dd><a href="https://gov.ro/ro/stiri/avize-tehnice-de-racordare-emise-pentru-80-000-mw-de-aproape-zece-ori-puterea-actuala-necesara-de-energie-a-romaniei" rel="noopener noreferrer">https://gov.ro/ro/stiri/avize-tehnice-de-racordare-emise-pentru-80-000-mw-de-aproape-zece-ori-puterea-actuala-necesara-de-energie-a-romaniei</a></dd>
 <dt>Licence</dt><dd>Reproduction authorised with the source named (gov.ro legal conditions); terms: <a href="https://gov.ro/ro/conditii-legale" rel="noopener noreferrer">https://gov.ro/ro/conditii-legale</a><br>Source: Guvernul României (gov.ro), Lista titularilor care dețin ATR, published 25.04.2026, reproduced with the source named; aggregated by Sol Associates SRL. The Government of Romania has not reviewed or endorsed this aggregation.</dd>
 <dt>How it was made</dt><dd>Rows of the gov.ro list of ATR holders, published on 2026-04-25, are aggregated per county. Natural persons, rows that are not generation and corrupt or MW-less rows are excluded (their numbers are withheld in this edition); county names are matched to the OSM county outlines after folding case and diacritics and through a reviewed list of alternative spellings and codes; operators are normalised to the known grid operators; statuses are restricted to a closed vocabulary. Each ATR issue date is placed in a descriptive date band by the calendar dates in the band note. MW is rounded to 0.1 per cell and totals are sums of rounded cells. The retrieval time is taken as the last-modified time of the input file as held by Sol Associates; it is not the time the source was published.</dd>
