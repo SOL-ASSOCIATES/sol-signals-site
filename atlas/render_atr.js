@@ -21,6 +21,9 @@
   function own(object, key) { return Object.prototype.hasOwnProperty.call(object, key); }
   function noFilters() { return { technology: null, status: null, operator: null }; }
   function isFiltered(f) { return !!(f.technology || f.status || f.operator); }
+  /* The colour mode a layer is drawn in: the shared choice, except that a layer with no dated detail (the connection-contract layer) has one mode, MW. Asking for the date-band mode while such a layer
+   * is on is not an error (the choice stays shared for the layers that have bands); that layer keeps drawing MW classes. */
+  function modeFor(state) { return state.banded ? shared.mode : "mw"; }
 
   // ------------------------------------------------------------------ geometry
   /* Leaflet lat/lng rings of a GeoJSON Polygon or MultiPolygon, or null. */
@@ -118,10 +121,10 @@
       });
       rows.push({ key: "none", label: Ui.NO_DATED_DETAIL, count: none, swatch: square(Lib.atrNeutral(dark)) });
     }
-    if (filtered) { rows.push({ key: "nomatch", label: Ui.NO_MATCH_TEXT, count: nomatch, swatch: { shape: "dots" } }); }
+    if (filtered) { rows.push({ key: "nomatch", label: state.words.noMatch, count: nomatch, swatch: { shape: "dots" } }); }
     rows.push({ key: "suppressed", label: Ui.SUPPRESSED_TEXT, count: suppressed, swatch: { shape: "hatch" } });
     var noData = state.unmatched.in_outline_only.length;
-    if (noData) { rows.push({ key: "nodata", label: "Outline without ATR data", count: noData, swatch: { shape: "outline", c: "var(--ink-2)", w: 2 } }); }
+    if (noData) { rows.push({ key: "nodata", label: state.words.outlineNoData, count: noData, swatch: { shape: "outline", c: "var(--ink-2)", w: 2 } }); }
     return rows;
   }
 
@@ -130,6 +133,18 @@
   var NOTE_BANDS = "Each county is coloured by the date band with the most MW among its released detail. Merged detail has no band and never decides the colour, so open the popup for the " +
     "whole split. A county with no dated detail released is neutral; under filters, a county with no ATR matching them is dotted (No ATR matching the filters). Hatched counties have their " +
     "detail withheld in this edition. Row counts are counties, for the filters set.";
+  /* The note under the legend for the wording of the layer: the ATR text above byte for byte, and the same note with the row noun of another layer (the connection-contract layer) otherwise. */
+  function legendNote(state) {
+    var T = state.words;
+    if (T.word === "ATR") { return state.mode === "bands" ? NOTE_BANDS : NOTE_MW; }
+    if (state.mode === "bands") {
+      return "Each county is coloured by the date band with the most MW among its released detail. Merged detail has no band and never decides the colour, so open the popup for the whole split. " +
+        "A county with no dated detail released is neutral; under filters, a county with no " + T.word + " matching them is dotted (" + T.noMatch + "). Hatched counties have their " +
+        "detail withheld in this edition. Row counts are counties, for the filters set.";
+    }
+    return "Colour classes are fixed MW breaks, the same for every list. A county with 0 MW is in the lowest class; a zero is not evidence that no " + T.word + " are listed there. Under filters, a county with no " +
+      T.word + " matching them is dotted (" + T.noMatch + "): it is not a low total. Hatched counties have their detail withheld in this edition. Row counts are counties, for the filters set.";
+  }
 
   // ------------------------------------------------------------------ the table and the side panel (data for atr_ui.js)
   function tableRows(state) {
@@ -156,22 +171,22 @@
     var extra = 0;
     dataOnly.forEach(function (n) { if (state.aggs[n].mw) { extra += state.aggs[n].mw; } });
     var group = obj.unknown_county.suppressed === true ? Ui.SUPPRESSED_TEXT : Lib.atrMwText(state.unknownAgg.mw);
-    var records = function (n) { return typeof n === "number" ? " (" + n.toLocaleString("en-GB") + " ATR records)" : ""; };
+    var records = function (n) { return typeof n === "number" ? " (" + n.toLocaleString("en-GB") + " " + state.words.recordsUnit + ")" : ""; };
     var unmatched = dataOnly.length + outlineOnly.length, coverage = Lib.atrCoverage(t);
     var shown = 0;                                                  // the MW of the published detail that matches the filters, wherever it is (counties, the unknown-county group)
     Object.keys(obj.counties).forEach(function (n) { if (state.aggs[n].mw) { shown += state.aggs[n].mw; } });
     if (obj.unknown_county.suppressed !== true && state.unknownAgg.mw) { shown += state.unknownAgg.mw; }
     var shownText = Lib.atrShownText(Math.round(shown * 10) / 10, t, filtered) || "";
-    var rest = filtered || !ctx.page ? null : Lib.atrRemainder(obj, Math.round(shown * 10) / 10), notes = ctx.page && ctx.page.atr_notes ? ctx.page.atr_notes : {};            // about the whole list: not under filters, and only with the page text of the manifest
+    var rest = filtered || !ctx.page ? null : Lib.atrRemainder(obj, Math.round(shown * 10) / 10), notes = Ui.notesFor(entry, ctx.page);            // about the whole list: not under filters, and only with the page text of the manifest (the notes of this layer: the page's own for the Government list)
     var on = ctx.entries ? ctx.entries("choropleth").filter(function (e) { return ctx.isOn(e.id); }) : [];
     return {
       mode: state.mode, filters: state.filters, opacity: state.opacity, snapshot: on.length ? on[0].id : null, selected: state.selected, tableOpen: state.tableOpen, sort: state.sort,
-      legendTitle: (state.mode === "bands" ? obj.cohort_legend_title : "ATR MW per county, fixed classes") + (filtered ? " (filters applied, released detail only)" : ""),
+      legendTitle: (state.mode === "bands" ? obj.cohort_legend_title : state.words.legendMw) + (filtered ? " (filters applied, released detail only)" : ""),
       side: [["Not mapped to a county", group + (extra > 0 ? "; counties without an outline: " + Lib.atrMwText(extra) : "")],
         ["Withheld in this edition", Lib.atrMwText(t.suppressed_mw) + records(t.suppressed_n)], ["All counties and groups", Lib.atrMwText(t.mw) + records(t.n)]],
       coverageText: coverage ? coverage.text : "", shownText: shownText, remainderText: rest ? rest + (typeof notes.limited === "string" && notes.limited ? " " + notes.limited : "") : "",
-      announce: "Colouring counties by " + Ui.modeLabel(state.mode) + ". Filters: " + Ui.filterSummary(state.filters) + ". " + (shownText ? shownText + "." : ""),
-      unmatchedText: unmatched ? unmatched + (unmatched === 1 ? " county" : " counties") + " not matched between the ATR data and the county outlines" +
+      announce: "Colouring counties by " + Ui.modeLabel(state.mode, state.words) + ". Filters: " + Ui.filterSummary(state.filters) + ". " + (shownText ? shownText + "." : ""),
+      unmatchedText: unmatched ? unmatched + (unmatched === 1 ? " county" : " counties") + " not matched between " + state.words.unmatchedFrom + " and the county outlines" +
         (dataOnly.length ? "; in the data only: " + dataOnly.join(", ") : "") + (outlineOnly.length ? "; in the outlines only: " + outlineOnly.join(", ") : "") + "." : "",
       rows: state.tableOpen ? tableRows(state) : []
     };
@@ -180,7 +195,7 @@
   // ------------------------------------------------------------------ selection, popups, highlight
   function popupFor(state, name) {
     var known = own(state.obj.counties, name);
-    return Ui.countyPopup(state.obj, name, known ? state.obj.counties[name] : undefined, known ? state.aggs[name] : null, isFiltered(state.filters));
+    return Ui.countyPopup(state.obj, name, known ? state.obj.counties[name] : undefined, known ? state.aggs[name] : null, isFiltered(state.filters), state.words);
   }
   function centreOf(state, ctx, name) { return state.polys[name] ? state.polys[name].getBounds().getCenter() : ctx.map.getCenter(); }
 
@@ -236,7 +251,7 @@
   function setMode(mode) {
     if (MODES.indexOf(mode) < 0) { throw new RangeError("unknown ATR colour mode " + mode + " (use mw or bands)"); }
     shared.mode = mode;
-    instances.forEach(function (i) { i.state.mode = mode; refresh(i.entry, i.state, i.ctx); });
+    instances.forEach(function (i) { i.state.mode = modeFor(i.state); refresh(i.entry, i.state, i.ctx); });
     return mode;
   }
 
@@ -290,8 +305,10 @@
 
   // ------------------------------------------------------------------ the renderer
   function create(entry, obj, fc, ctx) {
-    var state = { obj: obj, mode: shared.mode, filters: noFilters(), options: Lib.atrFilterOptions(obj), polys: Object.create(null), rings: Object.create(null), aggs: Object.create(null),
-      unknownAgg: null, patterns: {}, opacity: ctx.basemapOn ? FILL_OPACITY : 1, selected: null, hovered: null, highlight: null, shown: false, tableOpen: false, sort: { key: "name", dir: "asc" }, unmatched: null, ui: null };
+    var state = { obj: obj, entry: entry, words: Ui.textsFor(entry), banded: Lib.atrHasDatedBands(obj), mode: shared.mode, filters: noFilters(), options: Lib.atrFilterOptions(obj), polys: Object.create(null), rings: Object.create(null),
+      aggs: Object.create(null), unknownAgg: null, patterns: {}, opacity: ctx.basemapOn ? FILL_OPACITY : 1, selected: null, hovered: null, highlight: null, shown: false, tableOpen: false, sort: { key: "name", dir: "asc" },
+      unmatched: null, ui: null };
+    state.mode = modeFor(state);
     computeAggs(state);
     fc.features.forEach(function (feature) {
       var name = feature && feature.properties && feature.properties.name, rings = latlngsOf(feature);
@@ -304,7 +321,7 @@
       state.rings[name] = rings;
     });
     state.unmatched = { in_data_only: Object.keys(obj.counties).filter(function (n) { return !state.polys[n]; }), in_outline_only: Object.keys(state.polys).filter(function (n) { return !own(obj.counties, n); }) };
-    state.ui = Ui.buildPanel(entry, obj, state.options, actionsFor(entry, state, ctx), { notes: ctx.page && ctx.page.atr_notes ? ctx.page.atr_notes : {}, hosts: ctx.page && ctx.page.link_hosts ? ctx.page.link_hosts : [] });
+    state.ui = Ui.buildPanel(entry, obj, state.options, actionsFor(entry, state, ctx), { notes: Ui.notesFor(entry, ctx.page), hosts: ctx.page && ctx.page.link_hosts ? ctx.page.link_hosts : [] });
     return state;
   }
 
@@ -323,7 +340,7 @@
     },
     show: function (entry, state, ctx) {
       ctx.entries("choropleth").forEach(function (other) { if (other.id !== entry.id && ctx.isOn(other.id)) { ctx.setOn(other.id, false); } });         // one snapshot at a time
-      state.mode = shared.mode;
+      state.mode = modeFor(state);
       computeAggs(state);
       restyleAll(state, ctx);
       Object.keys(state.polys).forEach(function (name) { ctx.map.addLayer(state.polys[name]); state.polys[name].bringToFront(); });
@@ -359,12 +376,12 @@
         if (ctx.map.hasLayer(state.polys[name])) { drawn += 1; }
       });
       Object.keys(state.obj.counties).forEach(function (name) { classes[name] = state.obj.counties[name].suppressed === true ? null : Lib.atrMwClass(state.aggs[name].mw); });
-      return { mode: state.mode, filters: Object.assign({}, state.filters), opacity: state.opacity, drawn: drawn, counties: Object.keys(state.polys).length, fills: fills, mwClasses: classes,
+      return { mode: state.mode, banded: state.banded, filters: Object.assign({}, state.filters), opacity: state.opacity, drawn: drawn, counties: Object.keys(state.polys).length, fills: fills, mwClasses: classes,
         selected: state.selected, hovered: state.hovered, tableOpen: state.tableOpen, unmatched: state.unmatched };
     },
     legend: function (entry, state, ctx) {
       state.ui.update(viewOf(entry, state, ctx));
-      return { rows: legendRows(state, ctx), extra: state.ui.extra, after: state.ui.after, note: state.mode === "bands" ? NOTE_BANDS : NOTE_MW };
+      return { rows: legendRows(state, ctx), extra: state.ui.extra, after: state.ui.after, note: legendNote(state) };
     },
     describe: function (entry, state, index, ctx) {
       var name = Object.keys(state.obj.counties)[index];

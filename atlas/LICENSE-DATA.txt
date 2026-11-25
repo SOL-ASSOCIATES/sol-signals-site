@@ -1,6 +1,6 @@
 Romanian Energy Grid Atlas - data licence notice
 
-Edition: PUBLIC, DEMO edition. Build e74d7eec2d72, built 2026-11-25T04:35:15Z.
+Edition: PUBLIC, DEMO edition. Build 900ffae4c850, built 2026-11-25T09:22:45Z.
 
 The files in the data folder are derived from the sources below. Each layer keeps the licence of its source. Sol Associates changed the data
 (selection, simplification, rounding and filtering of text fields); the method of each layer is stated in the page.
@@ -31,6 +31,16 @@ Reproduction authorised with the source named (gov.ro legal conditions)
   Terms: https://gov.ro/ro/conditii-legale
   Attribution: Source: Guvernul României (gov.ro), Lista titularilor care dețin ATR, published 25.04.2026, reproduced with the source named; aggregated by Sol Associates SRL. The Government of Romania has not reviewed or endorsed this aggregation.
 
+Published register: no reuse terms stated by the publisher; used with the source named, withdrawn on request
+  Layers: Registered ATR capacity (Transelectrica register, 30 September 2026)
+  Terms: https://www.transelectrica.ro/ro/web/tel/avize-contracte
+  Attribution: Source: register of grid-connection approvals (ATR) published by Transelectrica (CNTEE Transelectrica SA) on transelectrica.ro, covering approvals issued by Transelectrica and by distribution operators; as published, state of 30.09.2026. Selected, cleaned and aggregated by county by Sol Associates SRL, which is not affiliated with Transelectrica. Transelectrica has not reviewed, endorsed or supplied this aggregation. The rights of Transelectrica and of the other publishers in the underlying register are unaffected; Sol Associates claims rights in this compilation only to the extent they exist. Information only, not advice.
+
+Published register: no reuse terms stated by the publisher; used with the source named, withdrawn on request
+  Layers: Connection contracts listed (Transelectrica register, 30 September 2026)
+  Terms: https://www.transelectrica.ro/ro/web/tel/avize-contracte
+  Attribution: Source: register of grid connection contracts published by Transelectrica (CNTEE Transelectrica SA) on transelectrica.ro; as published, state of 30.09.2026. Selected, cleaned and aggregated by county by Sol Associates SRL, which is not affiliated with Transelectrica. Transelectrica has not reviewed, endorsed or supplied this aggregation. The rights of Transelectrica and of the other publishers in the underlying register are unaffected; Sol Associates claims rights in this compilation only to the extent they exist. Information only, not advice.
+
 OpenStreetMap-derived data files: the ODbL notice, the offer of the derivative database and the changes made are in data/README-LICENCES.txt.
 
 Weather forecast (ECMWF)
@@ -53,6 +63,22 @@ Connection approvals (Government of Romania list)
   The Government's list is a selection (holders of at least 1 MW in total) as published on that date; it may change, and it covers every stage from newly issued ATRs to recent commissioning.
   Aggregated by county by Sol Associates SRL. Rows identified as natural persons are excluded. Small groups are handled by threshold rules (at least 5 distinct holders per released figure, no holder above 80 percent of its MW), and figures that fail these tests are merged or withheld. These rules reduce, but cannot eliminate, the risk that a holder can be inferred when the figures are combined with the public Government list or other sources.
   The Government of Romania has not reviewed or endorsed this aggregation.
+
+Connection approvals (Transelectrica register)
+  Source: register of grid-connection approvals (ATR) published by Transelectrica (CNTEE Transelectrica SA) on transelectrica.ro, covering approvals issued by Transelectrica and by distribution operators; as published, state of 30.09.2026.
+  The publisher's page states no terms of reuse. The rights of Transelectrica and of the other publishers in the underlying register are unaffected; Sol Associates claims rights in this compilation only to the extent they exist.
+  Selected, cleaned and aggregated by county by Sol Associates SRL, which is not affiliated with Transelectrica. Transelectrica has not reviewed, endorsed or supplied this aggregation.
+  Rows are kept only when the holder carries a company or organisation marker; natural persons, sole traders and unclear cases are excluded before aggregation, so some companies may be dropped. Small groups are handled by threshold rules (at least 5 distinct holders per released figure, no holder above 80 percent of its MW), and figures that fail these tests are merged or withheld. These rules reduce, but cannot eliminate, the risk that a holder can be inferred when the figures are combined with the public Government list or other sources.
+  Status is the register's own text on that date, simplified by Sol Associates into valid, expired or unknown; it does not say that an approval is in force today.
+  Sol Associates withdraws or corrects this layer on request: use the corrections address given on the page. Information only, not advice.
+
+Connection contracts (Transelectrica register)
+  Source: register of grid connection contracts published by Transelectrica (CNTEE Transelectrica SA) on transelectrica.ro; as published, state of 30.09.2026; one sheet of the file, with 53 rows, is dated 31.07.2026.
+  The publisher's page states no terms of reuse. The rights of Transelectrica and of the other publishers in the underlying register are unaffected; Sol Associates claims rights in this compilation only to the extent they exist.
+  Selected, cleaned and aggregated by county by Sol Associates SRL, which is not affiliated with Transelectrica. Transelectrica has not reviewed, endorsed or supplied this aggregation.
+  Rows are kept only when the holder carries a company or organisation marker; natural persons, sole traders and unclear cases are excluded before aggregation, so some companies may be dropped. Small groups are handled by threshold rules (at least 5 distinct holders per released figure, no holder above 80 percent of its MW), and figures that fail these tests are merged or withheld. These rules reduce, but cannot eliminate, the risk that a holder can be inferred when the figures are combined with the public Government list or other sources.
+  The register lists connection contracts. A row means that a contract is listed on the register date, not that the plant is built, connected or operating (listed, not built); the same project can also appear in the ATR layers, so the layers are never added.
+  Sol Associates withdraws or corrects this layer on request: use the corrections address given on the page. Information only, not advice.
 
 Base map (OpenStreetMap standard tile layer)
   Base map: this edition draws the OpenStreetMap standard tile layer (tiles from tile.openstreetmap.org, (c) OpenStreetMap contributors). The tiles are not part of the data files of this folder; they are used under the OpenStreetMap Foundation tile usage policy: https://operations.osmfoundation.org/policies/tiles/

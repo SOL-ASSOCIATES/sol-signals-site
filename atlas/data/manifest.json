@@ -1,8 +1,8 @@
 {
  "tier": "PUBLIC",
  "edition": "demo",
- "build_id": "e74d7eec2d72",
- "built_at": "2026-11-25T04:35:15Z",
+ "build_id": "900ffae4c850",
+ "built_at": "2026-11-25T09:22:45Z",
  "preview": false,
  "basemap": {
   "url": "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -438,19 +438,19 @@
     "layer_id": "weather_forecast",
     "metric": "100 m wind speed and total cloud cover forecast",
     "unit": "wind100_ms in m/s; cloud_pct in percent",
-    "as_of": "2026-11-24",
-    "retrieved_at": "2026-11-25T04:35:00Z",
-    "built_at": "2026-11-25T04:35:02Z",
+    "as_of": "2026-11-25",
+    "retrieved_at": "2026-11-25T09:22:38Z",
+    "built_at": "2026-11-25T09:22:41Z",
     "time_basis": "forecast_validity",
     "evidence_label": "FORECAST",
     "verification_status": "UNVERIFIED",
-    "source_ref": "https://data.ecmwf.int/forecasts/20261124/18z/ifs/0p25/oper/",
-    "transform_note": "Run 20261124/18z (stream oper, type fc, 0.25 degree). Wind speed = sqrt(100u^2 + 100v^2) rounded to 0.1 m/s; total cloud cover scaled from a fraction to percent, rounded to 1 percent. One 0.25 degree square per grid point whose centre lies inside the Romania outline; values are the GRIB values at their native steps, with no interpolation or smoothing.",
+    "source_ref": "https://data.ecmwf.int/forecasts/20261125/00z/ifs/0p25/oper/",
+    "transform_note": "Run 20261125/00z (stream oper, type fc, 0.25 degree). Wind speed = sqrt(100u^2 + 100v^2) rounded to 0.1 m/s; total cloud cover scaled from a fraction to percent, rounded to 1 percent. One 0.25 degree square per grid point whose centre lies inside the Romania outline; values are the GRIB values at their native steps, with no interpolation or smoothing.",
     "transform_version": "weather-1",
     "model": "ECMWF IFS HRES open data 0.25 deg",
-    "issued_at": "2026-11-24T18:00:00Z",
-    "valid_from": "2026-11-24T18:00:00Z",
-    "valid_to": "2026-11-27T18:00:00Z",
+    "issued_at": "2026-11-25T00:00:00Z",
+    "valid_from": "2026-11-25T00:00:00Z",
+    "valid_to": "2026-11-28T00:00:00Z",
     "licence": {
      "identifier": "CC-BY-4.0",
      "terms_ref": "https://apps.ecmwf.int/datasets/licences/general/",
@@ -485,7 +485,7 @@
    "counts": {
     "cells": 447
    },
-   "age_days": 1,
+   "age_days": 0,
    "stale": false
   },
   {
@@ -617,7 +617,7 @@
     "unit": "MWh per local day (Europe/Bucharest)",
     "as_of": "2026-11-24",
     "retrieved_at": "2026-11-25T04:35:11Z",
-    "built_at": "2026-11-25T04:35:12Z",
+    "built_at": "2026-11-25T09:22:43Z",
     "time_basis": "interval",
     "evidence_label": "DERIVED",
     "verification_status": "UNVERIFIED",
@@ -682,13 +682,13 @@
     "unit": "MW",
     "as_of": "2026-04-25",
     "retrieved_at": "2026-09-15T16:25:02Z",
-    "built_at": "2026-11-24T16:30:05Z",
+    "built_at": "2026-11-25T09:21:15Z",
     "time_basis": "snapshot",
     "evidence_label": "DERIVED",
     "verification_status": "UNVERIFIED",
     "source_ref": "https://gov.ro/ro/stiri/avize-tehnice-de-racordare-emise-pentru-80-000-mw-de-aproape-zece-ori-puterea-actuala-necesara-de-energie-a-romaniei",
     "transform_note": "Rows of the gov.ro list of ATR holders, published on 2026-04-25, are aggregated per county. Natural persons, rows that are not generation and corrupt or MW-less rows are excluded (their numbers are withheld in this edition); county names are matched to the OSM county outlines after folding case and diacritics and through a reviewed list of alternative spellings and codes; operators are normalised to the known grid operators; statuses are restricted to a closed vocabulary. Each ATR issue date is placed in a descriptive date band by the calendar dates in the band note. MW is rounded to 0.1 per cell and totals are sums of rounded cells. The retrieval time is taken as the last-modified time of the input file as held by Sol Associates; it is not the time the source was published.",
-    "transform_version": "atr-2",
+    "transform_version": "atr-3",
     "licence": {
      "identifier": "Reproduction authorised with the source named (gov.ro legal conditions)",
      "terms_ref": "https://gov.ro/ro/conditii-legale",
@@ -744,12 +744,163 @@
    "age_days": 214,
    "stale": false,
    "date_word": "Published"
+  },
+  {
+   "id": "atr_tel_2026_09_30",
+   "title": "Registered ATR capacity (Transelectrica register, 30 September 2026)",
+   "group": "Connection approvals (ATR)",
+   "kind": "choropleth",
+   "default_on": false,
+   "files": {
+    "data": "data/atr_tel_2026_09_30.json"
+   },
+   "meta": {
+    "layer_id": "atr_tel_2026_09_30",
+    "metric": "Reported ATR MW by county at the source snapshot, with ATR date bands by the date recorded in the list",
+    "unit": "MW",
+    "as_of": "2026-09-30",
+    "retrieved_at": "2026-11-03T22:15:16Z",
+    "built_at": "2026-11-25T09:21:17Z",
+    "time_basis": "snapshot",
+    "evidence_label": "DERIVED",
+    "verification_status": "UNVERIFIED",
+    "source_ref": "https://www.transelectrica.ro/ro/web/tel/avize-contracte",
+    "transform_note": "Rows of the Transelectrica ATR register for the snapshot of 2026-09-30 (generation and storage sheets) are aggregated per county. Holders that are not legal entities (a holder is kept only with a positive company or organisation marker; natural persons, sole traders and rows in doubt are excluded), rows that are not generation or storage, and corrupt or MW-less rows are excluded (their numbers are withheld in this edition); county names are matched to the OSM county outlines after folding case and diacritics and through a reviewed list of alternative spellings and codes; operators are normalised to the known grid operators; statuses are restricted to a closed vocabulary. Each ATR issue date is placed in a descriptive date band by the calendar dates in the band note. MW is rounded to 0.1 per cell and totals are sums of rounded cells. The retrieval time is the time Sol Associates fetched the register; it is not the time the source was published.",
+    "transform_version": "atr-3",
+    "licence": {
+     "identifier": "Published register: no reuse terms stated by the publisher; used with the source named, withdrawn on request",
+     "terms_ref": "https://www.transelectrica.ro/ro/web/tel/avize-contracte",
+     "attribution": "Source: register of grid-connection approvals (ATR) published by Transelectrica (CNTEE Transelectrica SA) on transelectrica.ro, covering approvals issued by Transelectrica and by distribution operators; as published, state of 30.09.2026. Selected, cleaned and aggregated by county by Sol Associates SRL, which is not affiliated with Transelectrica. Transelectrica has not reviewed, endorsed or supplied this aggregation. The rights of Transelectrica and of the other publishers in the underlying register are unaffected; Sol Associates claims rights in this compilation only to the extent they exist. Information only, not advice."
+    },
+    "scope": {
+     "geography": "Romania, county level (counties of the OSM outline layer, Bucuresti included) plus an unknown-county group (suppressed in this edition)",
+     "coverage": "Transelectrica ATR register: 2930 ATR rows aggregated (67614.3 MW) at the snapshot of 2026-09-30; excluded rows are not counted here (their number is withheld in this edition)",
+     "population": "Registered ATR MW of generation and storage ATRs held by legal entities, every status as written in the register, natural persons and unclear holders excluded",
+     "denominator": "None: absolute registered MW, not a share of any total, not grid loading and not a probability of commissioning",
+     "spatial_resolution": "County; rows whose county cannot be matched form the unknown-county group, which is suppressed in this edition",
+     "temporal_resolution": "One snapshot at the snapshot date; the per-row ATR issue date is used only to assign date bands",
+     "coordinate_order": "not_applicable"
+    },
+    "quality": {
+     "missing_count": null,
+     "excluded_count": null,
+     "unmatched_count": null,
+     "limitations": [
+      "Registered ATR MW in the register on the snapshot date for the selected status and technology: not installed capacity, not a built or connected plant, not a probability of commissioning, not MW per km2 and not a statement about grid loading, saturation or the capacity of the grid. Statuses other than valid can be selected, so a total is not necessarily the MW of approvals that are in force.",
+      "Note that the register issue date may be the latest amended ATR date, not the date of the original ATR; here the issue date is the register's own date field; text that is not a single date is treated as unknown.",
+      "ATR date bands group source issue dates by the calendar dates in the band note; a band is never a legal assessment of any ATR. The band is set by the ATR issue date recorded in the source, which may be the date of the latest amended ATR. Under the cited acts the operative dates differ (for example the date a connection or capacity allocation request was registered, the date the operator communicated the financial guarantee value, or the date a connection contract was signed), so a band does not show which rules apply to a given ATR.",
+      "This snapshot comes from one register: its figures must not be added to those of another register or list (the connection-contract register and the Government list included), because the same ATR can appear in several of them.",
+      "MW is rounded to 0.1 per cell; county and total figures are sums of the rounded cells.",
+      "Operator names are normalised to the known grid operators (DEER means Distributie Energie Electrica Romania); any other value is shown as Other and a blank one as unknown.",
+      "Rows are matched to county names from OpenStreetMap-derived county boundaries after folding case and diacritics, then through a reviewed list of alternative spellings and codes; the number of rows matched that way is withheld in this edition. A county shown with zero MW is in the lowest class; a zero is not evidence that no ATR exists there.",
+      "Rows whose county is blank, abbreviated, names several counties or is misspelt, and cannot be matched, form an unknown-county group; it is suppressed in this edition and, in the totals, its rows and MW are counted as suppressed.",
+      "The band \"Issue date unknown or ambiguous\" holds the rows with no readable single issue date: a blank or free-text date, a text with several dates, several ATR numbers or an amendment marker (ambiguous), and a date after the snapshot date. The number of rows in each of these groups is withheld in this edition, so the band cannot be split further.",
+      "A status outside the closed vocabulary of the source is reported as Unrecognised with its MW kept and the raw value is not published; the number of such rows is withheld in this edition.",
+      "Status is the register's own text on 30 September 2026, simplified by Sol Associates into valid, expired or unknown. It does not say that an approval is in force today or can be used, and the register can keep an approval as valid after its printed expiry date.",
+      "Technology is the register sheet classification; rows of the Consumer and DSO works sheets are not generation and are excluded, and their number is withheld in this edition.",
+      "Rows are kept only when the holder carries a company or organisation marker; natural persons, sole traders and unclear cases are excluded before aggregation, so some companies may be dropped; the number excluded is withheld in this edition.",
+      "Date conflicts between the registers were not assessed in this build, so the band \"Issue date disagrees between sources\" is empty by construction.",
+      "Rows are excluded when the source row is corrupt or its MW cannot be read, and the rows of a date band that is too small to be published are left out; the number of such rows is withheld in this edition. Their capacity is unknown, not zero.",
+      "Counts and MW for particular groups of rows (excluded rows, rows matched through an alternative county spelling, rows with an unrecognised status, and the share of unknown technology) are not published in this edition, and neither is the split of the unknown-date band into its kinds (a blank or free-text date, an ambiguous text, a date after the snapshot date), so that the published figures are less likely to single out small groups.",
+      "The counts of rows with no readable issue date, of excluded rows and of rows without a matched county are not given in this edition: they are withheld, which is not the same as zero.",
+      "Detail is withheld or merged in this edition. Small groups are handled by threshold rules (at least 5 distinct holders per released figure, no holder above 80 percent of its MW), and figures that fail these tests are merged or withheld. These rules reduce, but cannot eliminate, the risk that a holder can be inferred when the figures are combined with the public Government list or other sources. Where the detail of a county could not be released it is merged into one remaining entry for that county, and where even that is too small the county is suppressed; national totals still include every aggregated row. The coverage figures show how much of the total MW is shown in detail, how much is merged and how much is suppressed. The same test is applied to every published figure and to the differences between published figures that isolate up to four groups of rows."
+     ],
+     "stale_after_days": 400,
+     "on_stale": "BANNER"
+    }
+   },
+   "counts": {
+    "before_2024_08_02": 1,
+    "from_2024_08_02_to_2026_05_24": 26,
+    "from_2026_05_25": 12,
+    "date_unknown": 0,
+    "date_conflicted": 0,
+    "suppressed": 1
+   },
+   "age_days": 56,
+   "stale": false
+  },
+  {
+   "id": "atr_telcr_2026_09_30",
+   "title": "Connection contracts listed (Transelectrica register, 30 September 2026)",
+   "group": "Connection approvals (ATR)",
+   "kind": "choropleth",
+   "default_on": false,
+   "files": {
+    "data": "data/atr_telcr_2026_09_30.json"
+   },
+   "meta": {
+    "layer_id": "atr_telcr_2026_09_30",
+    "metric": "Listed connection-contract MW by county at the source snapshot",
+    "unit": "MW",
+    "as_of": "2026-09-30",
+    "retrieved_at": "2026-11-05T00:54:13Z",
+    "built_at": "2026-11-25T09:21:47Z",
+    "time_basis": "snapshot",
+    "evidence_label": "DERIVED",
+    "verification_status": "UNVERIFIED",
+    "source_ref": "https://www.transelectrica.ro/ro/web/tel/avize-contracte",
+    "transform_note": "Rows of the Transelectrica connection-contract register for the snapshot of 2026-09-30 (generation and storage sheets) are aggregated per county. Holders that are not legal entities (a holder is kept only with a positive company or organisation marker; natural persons, sole traders and rows in doubt are excluded), rows that are not generation or storage, and corrupt or MW-less rows are excluded (their numbers are withheld in this edition); county names are matched to the OSM county outlines after folding case and diacritics and through a reviewed list of alternative spellings and codes; operators are normalised to the known grid operators; the status is the one token CR_LISTED. No date bands are used: every row is shown in one group. MW is rounded to 0.1 per cell and totals are sums of rounded cells. The retrieval time is the time Sol Associates fetched the register; it is not the time the source was published.",
+    "transform_version": "atr-3",
+    "licence": {
+     "identifier": "Published register: no reuse terms stated by the publisher; used with the source named, withdrawn on request",
+     "terms_ref": "https://www.transelectrica.ro/ro/web/tel/avize-contracte",
+     "attribution": "Source: register of grid connection contracts published by Transelectrica (CNTEE Transelectrica SA) on transelectrica.ro; as published, state of 30.09.2026. Selected, cleaned and aggregated by county by Sol Associates SRL, which is not affiliated with Transelectrica. Transelectrica has not reviewed, endorsed or supplied this aggregation. The rights of Transelectrica and of the other publishers in the underlying register are unaffected; Sol Associates claims rights in this compilation only to the extent they exist. Information only, not advice."
+    },
+    "scope": {
+     "geography": "Romania, county level (counties of the OSM outline layer, Bucuresti included) plus an unknown-county group (published with its own figures)",
+     "coverage": "Transelectrica connection-contract register: 23215 contract rows listed (69469.2 MW) at the snapshot of 2026-09-30; excluded rows are not counted here (their number is withheld in this edition)",
+     "population": "Listed connection-contract MW of generation and storage projects held by legal entities, natural persons and unclear holders excluded",
+     "denominator": "None: absolute listed MW, not a share of any total, not grid loading and not a probability of commissioning",
+     "spatial_resolution": "County; rows whose county cannot be matched form the unknown-county group, which is published with its own figures",
+     "temporal_resolution": "One snapshot at the snapshot date; no date bands are used",
+     "coordinate_order": "not_applicable"
+    },
+    "quality": {
+     "missing_count": null,
+     "excluded_count": null,
+     "unmatched_count": null,
+     "limitations": [
+      "Connection-contract MW listed in the source register on the snapshot date for the selected technology: not installed capacity, not a probability of commissioning, not MW per km2 and not a statement about grid loading, saturation or the capacity of the grid.",
+      "The register lists connection contracts. A row means that a contract is listed on 30 September 2026; the register does not say whether the plant is built, connected or operating, and the same project can also appear in the ATR layer, so the two layers must not be added.",
+      "This layer has no date bands: the contract date is readable for only part of the rows, so every row is shown in one group.",
+      "Some sheets of the register file can carry an earlier date than the snapshot date.",
+      "This snapshot comes from one register: its figures must not be added to those of another register or list (the ATR layer and the Government list included), because the same project can appear in several of them.",
+      "MW is rounded to 0.1 per cell; county and total figures are sums of the rounded cells.",
+      "Operator names are normalised to the known grid operators (DEER means Distributie Energie Electrica Romania); any other value is shown as Other and a blank one as unknown.",
+      "Rows are matched to county names from OpenStreetMap-derived county boundaries after folding case and diacritics, then through a reviewed list of alternative spellings and codes; the number of rows matched that way is withheld in this edition. A county shown with zero MW is in the lowest class; a zero is not evidence that no contract exists there.",
+      "Rows whose county is blank, abbreviated, names several counties or is misspelt, and cannot be matched, form an unknown-county group; it is published with its own figures.",
+      "The register states no status for a connection contract: every row is shown with the one label 'Contract listed in the register', which says only that a contract is listed on 30 September 2026.",
+      "Technology is the register sheet classification; rows of the Consumer and DSO works sheets are not generation and are excluded, and their number is withheld in this edition.",
+      "Rows are kept only when the holder carries a company or organisation marker; natural persons, sole traders and unclear cases are excluded before aggregation, so some companies may be dropped; the number excluded is withheld in this edition.",
+      "Rows are excluded when the source row is corrupt or its MW cannot be read; the number of such rows is withheld in this edition. Their capacity is unknown, not zero.",
+      "Counts and MW for particular groups of rows (excluded rows, rows matched through an alternative county spelling, and the share of unknown technology) are not published in this edition, so that the published figures are less likely to single out small groups.",
+      "The counts of excluded rows and of rows without a matched county are not given in this edition: they are withheld, which is not the same as zero.",
+      "Detail is withheld or merged in this edition. Small groups are handled by threshold rules (at least 5 distinct holders per released figure, no holder above 80 percent of its MW), and figures that fail these tests are merged or withheld. These rules reduce, but cannot eliminate, the risk that a holder can be inferred when the figures are combined with the public Government list or other sources. Where the detail of a county could not be released it is merged into one remaining entry for that county, and where even that is too small the county is suppressed; national totals still include every aggregated row. The coverage figures show how much of the total MW is shown in detail, how much is merged and how much is suppressed. The same test is applied to every published figure and to the differences between published figures that isolate up to four groups of rows."
+     ],
+     "stale_after_days": 400,
+     "on_stale": "BANNER"
+    }
+   },
+   "counts": {
+    "before_2024_08_02": 0,
+    "from_2024_08_02_to_2026_05_24": 0,
+    "from_2026_05_25": 0,
+    "date_unknown": 36,
+    "date_conflicted": 0,
+    "suppressed": 0
+   },
+   "age_days": 56,
+   "stale": false,
+   "record_word": "contracts"
   }
  ],
  "withheld": [],
  "attribution": [
   "(c) OpenStreetMap contributors, ODbL",
   "Source: Guvernul României (gov.ro), Lista titularilor care dețin ATR, published 25.04.2026, reproduced with the source named; aggregated by Sol Associates SRL. The Government of Romania has not reviewed or endorsed this aggregation.",
+  "Source: register of grid-connection approvals (ATR) published by Transelectrica (CNTEE Transelectrica SA) on transelectrica.ro, covering approvals issued by Transelectrica and by distribution operators; as published, state of 30.09.2026. Selected, cleaned and aggregated by county by Sol Associates SRL, which is not affiliated with Transelectrica. Transelectrica has not reviewed, endorsed or supplied this aggregation. The rights of Transelectrica and of the other publishers in the underlying register are unaffected; Sol Associates claims rights in this compilation only to the extent they exist. Information only, not advice.",
+  "Source: register of grid connection contracts published by Transelectrica (CNTEE Transelectrica SA) on transelectrica.ro; as published, state of 30.09.2026. Selected, cleaned and aggregated by county by Sol Associates SRL, which is not affiliated with Transelectrica. Transelectrica has not reviewed, endorsed or supplied this aggregation. The rights of Transelectrica and of the other publishers in the underlying register are unaffected; Sol Associates claims rights in this compilation only to the extent they exist. Information only, not advice.",
   "Source: ENTSO-E Transparency Platform (transparency.entsoe.eu), actual generation per production type, bidding zone RO. Daily totals computed by Sol Associates from the values published; not endorsed by ENTSO-E.",
   "Solar resource data (c) 2019 Solargis, from Global Solar Atlas 2.0 (World Bank Group, funded by ESMAP), https://globalsolaratlas.info, CC BY 4.0. Long-term yearly averages, 1994 to 2018. Modified by Sol Associates: clipped to Romania, resampled and recoloured for display. The World Bank Group, ESMAP and Solargis have not endorsed this use of the data.",
   "Weather layer: (c) 2026 ECMWF; this service is based on data and products of the European Centre for Medium-Range Weather Forecasts (ECMWF), www.ecmwf.int, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). ECMWF does not accept any liability whatsoever for any error or omission in the data, their availability, or for any loss or damage arising from their use. Modified by Sol Associates: clipped to Romania; 100 m wind speed derived from the u and v components; values rounded. This is a model forecast, not a measurement.",
@@ -801,8 +952,8 @@
     }
    ]
   },
-  "promise": "Explore Romania's mapped power plants, substations and grid, and county totals from the published list of grid connection approvals (ATR).",
-  "description": "Explore Romania's mapped power plants, substations and grid, and county totals from the published list of grid connection approvals (ATR). Each layer states its source, licence and date. General information, not advice.",
+  "promise": "Explore Romania's mapped power plants, substations and grid, and county totals from the published lists of grid connection approvals (ATR).",
+  "description": "Explore Romania's mapped power plants, substations and grid, and county totals from the published lists of grid connection approvals (ATR). Each layer states its source, licence and date. General information, not advice.",
   "link_hosts": [
    "apps.ecmwf.int",
    "carto.com",
@@ -861,7 +1012,11 @@
    },
    ", actual generation per production type; daily totals computed by Sol Associates; not endorsed by ENTSO-E.",
    " ",
-   "Connection approvals: Guvernul României (gov.ro), aggregated by Sol Associates."
+   "Connection approvals: Guvernul României (gov.ro), aggregated by Sol Associates.",
+   " ",
+   "Connection approvals (ATR): CNTEE Transelectrica SA register as published, state of 30.09.2026, aggregated by Sol Associates; not reviewed or endorsed by Transelectrica.",
+   " ",
+   "Connection contracts: CNTEE Transelectrica SA register as published, state of 30.09.2026, aggregated by Sol Associates; not reviewed or endorsed by Transelectrica."
   ],
   "map_credit": [
    "© ",
@@ -941,6 +1096,15 @@
       "Date bands group ATRs by the date recorded for them in the Government list, which can be the date of the latest amended ATR rather than of the original. They are descriptive. They do not show whether a project meets any rule or deadline, and Sol Associates draws no eligibility conclusion from them."
      ],
      [
+      "The Transelectrica ATR layer shows the capacity (MW) of grid connection approvals listed in the register published by Transelectrica, as that register stood on 30 September 2026, summed by county. Status is the register's own text on that date, simplified by Sol Associates into valid, expired or unknown; valid means valid in the register, not valid in law. It is not installed capacity, grid loading, available or free capacity or a probability of commissioning, and it does not show whether any ATR is valid, eligible or subject to any rule: the register can keep an approval as valid after its printed expiry date. The Government list and this register overlap, so the two layers are never added."
+     ],
+     [
+      "Date bands group ATRs by the date recorded for them in the Transelectrica register, which can be the date of the latest amended ATR rather than of the original, so a recent band can hold approvals that were first issued earlier. They are descriptive. They do not show whether a project meets any rule or deadline, and Sol Associates draws no eligibility conclusion from them."
+     ],
+     [
+      "The contract layer shows the capacity (MW) and the number of connection contracts listed in the register published by Transelectrica, as that register stood on 30 September 2026, summed by county. A row means that a contract is listed in the register; the register does not say whether the plant is built, connected or operating, so this is listed, not built. It is not installed capacity, grid loading, available or free capacity or a probability of commissioning, and it does not show whether any ATR is valid, eligible or subject to any rule. The same project can also appear in the ATR layers, so the layers are never added. One sheet of the file, with 53 rows, is dated 31 July 2026."
+     ],
+     [
       "Weather layer: (c) 2026 ECMWF; this service is based on data and products of the ",
       {
        "text": "European Centre for Medium-Range Weather Forecasts (ECMWF)",
@@ -973,6 +1137,22 @@
        "href": "https://gov.ro/ro/conditii-legale"
       },
       ". The Government's list is a selection (holders of at least 1 MW in total) as published on that date; it may change, and it covers every stage from newly issued ATRs to recent commissioning. Aggregated by county by Sol Associates SRL. Rows identified as natural persons are excluded. Small groups are handled by threshold rules (at least 5 distinct holders per released figure, no holder above 80 percent of its MW), and figures that fail these tests are merged or withheld. These rules reduce, but cannot eliminate, the risk that a holder can be inferred when the figures are combined with the public Government list or other sources. The Government of Romania has not reviewed or endorsed this aggregation."
+     ],
+     [
+      "Connection approvals (ATR), Transelectrica register: source CNTEE Transelectrica SA, register of grid connection approvals (ATR) published on ",
+      {
+       "text": "transelectrica.ro",
+       "href": "https://www.transelectrica.ro/ro/web/tel/avize-contracte"
+      },
+      ", covering approvals issued by Transelectrica and by distribution operators; as published, state of 30.09.2026. The publisher's page states no terms of reuse. Selected, cleaned and aggregated by county by Sol Associates SRL, which is not affiliated with Transelectrica. Rows are kept only when the holder carries a company or organisation marker; natural persons, sole traders and unclear cases are excluded before aggregation, so some companies may be dropped. Small groups are handled by threshold rules (at least 5 distinct holders per released figure, no holder above 80 percent of its MW), and figures that fail these tests are merged or withheld. These rules reduce, but cannot eliminate, the risk that a holder can be inferred when the figures are combined with the public Government list or other sources. Transelectrica has not reviewed, endorsed or supplied this aggregation. The rights of Transelectrica and of the other publishers in the underlying register are unaffected; Sol Associates claims rights in this compilation only to the extent they exist. Sol Associates withdraws or corrects this layer on request: use the corrections address given on this page."
+     ],
+     [
+      "Connection contracts, Transelectrica register: source CNTEE Transelectrica SA, register of grid connection contracts published on ",
+      {
+       "text": "transelectrica.ro",
+       "href": "https://www.transelectrica.ro/ro/web/tel/avize-contracte"
+      },
+      "; as published, state of 30.09.2026 (one sheet of the file, with 53 rows, is dated 31.07.2026). The publisher's page states no terms of reuse. Selected, cleaned and aggregated by county by Sol Associates SRL, which is not affiliated with Transelectrica. Rows are kept only when the holder carries a company or organisation marker; natural persons, sole traders and unclear cases are excluded before aggregation, so some companies may be dropped. Small groups are handled by threshold rules (at least 5 distinct holders per released figure, no holder above 80 percent of its MW), and figures that fail these tests are merged or withheld. These rules reduce, but cannot eliminate, the risk that a holder can be inferred when the figures are combined with the public Government list or other sources. Transelectrica has not reviewed, endorsed or supplied this aggregation. The rights of Transelectrica and of the other publishers in the underlying register are unaffected; Sol Associates claims rights in this compilation only to the extent they exist. Sol Associates withdraws or corrects this layer on request: use the corrections address given on this page."
      ]
     ]
    },
@@ -1124,7 +1304,16 @@
      "href": "https://sol-associates.ro/legal/disclaimer/"
     },
     "."
-   ]
+   ],
+   "by_layer": {
+    "atr_tel_2026_09_30": {
+     "date_bands": "Date bands group ATRs by the date recorded for them in the Transelectrica register, which can be the date of the latest amended ATR rather than of the original, so a recent band can hold approvals that were first issued earlier. They are descriptive. They do not show whether a project meets any rule or deadline, and Sol Associates draws no eligibility conclusion from them.",
+     "status": "Status as written in the Transelectrica register on 30 September 2026, simplified by Sol Associates. It is not a check of whether an approval is in force today."
+    },
+    "atr_telcr_2026_09_30": {
+     "status": "A row means that a contract is listed in the register on 30 September 2026; the register does not say whether the plant is built, connected or operating."
+    }
+   }
   },
   "production_notes": {
    "nuclear": {
@@ -1151,7 +1340,9 @@
     "Solar irradiation, long-term (GHI) (long-term averages, not current site yield)",
     "PV output potential, long-term (PVOUT) (long-term averages, not current site yield)",
     "Daily national production by fuel (historical totals by day)",
-    "Listed ATR capacity (gov.ro list, April 2026) (county totals from one dated list)"
+    "Listed ATR capacity (gov.ro list, April 2026) (county totals from dated lists)",
+    "Registered ATR capacity (Transelectrica register, 30 September 2026) (county totals from dated lists)",
+    "Connection contracts listed (Transelectrica register, 30 September 2026) (county totals from dated lists)"
    ],
    "not_in": [
     "Grid development plan",
@@ -1163,7 +1354,9 @@
     "solar_ghi": "long-term averages, not current site yield",
     "solar_pvout": "long-term averages, not current site yield",
     "production_national": "historical totals by day",
-    "atr_govro_2026_04_25": "county totals from one dated list"
+    "atr_govro_2026_04_25": "county totals from dated lists",
+    "atr_tel_2026_09_30": "county totals from dated lists",
+    "atr_telcr_2026_09_30": "county totals from dated lists"
    }
   },
   "seo": {
@@ -1195,8 +1388,16 @@
    "bytes": 419261
   },
   "data/atr_govro_2026_04_25.json": {
-   "sha256": "5675e515830bdffce5fbc65d628f8909a8855e5b90b3ac993e6b3e27176558e1",
+   "sha256": "d9c50ecc10f6f1e6fcfaf4f8ed2b7bf1725ff2cae8f997492b8bc26103936909",
    "bytes": 14223
+  },
+  "data/atr_tel_2026_09_30.json": {
+   "sha256": "5afcffc73dae13dbb6032c7e21c4da98524951f122e05af714e6cc4ccc1e3659",
+   "bytes": 13882
+  },
+  "data/atr_telcr_2026_09_30.json": {
+   "sha256": "fcbc97b08e16aa0ce0e2d56e63f89e53e0ac3dca9937fcd2c1af723a521a069b",
+   "bytes": 11891
   },
   "data/counties.json": {
    "sha256": "fd1865e934a90752e0f31a7dbbc137738724e5352a226f6df08728a3464f908d",
@@ -1227,8 +1428,8 @@
    "bytes": 613546
   },
   "data/weather_forecast.json": {
-   "sha256": "f75032c037936eca6dd81ce9c5281a7441233ff21abd7843599f9f1563423335",
-   "bytes": 203242
+   "sha256": "6b6b5d98825580d918bbbe8d30066ed7a61ce42d5e7a62da64a9095beb9ef8da",
+   "bytes": 203923
   }
  },
  "decision_ref": "DR-2026-10-17-001"

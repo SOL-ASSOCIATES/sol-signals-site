@@ -113,6 +113,20 @@
     return { technology: Object.keys(seen.technology).sort(), status: Object.keys(seen.status).sort(), operator: Object.keys(seen.operator).sort() };
   }
 
+  /* Whether the layer has date bands to show: some MW sits in one of the three dated bands, in the national totals or, when the totals carry no split by band, in a released cell. A layer whose detail is all
+   * "date unknown" (the connection-contract layer carries no date bands in its first release) has none, so the page offers no date-band colour mode, note or column for it. Read from the data object only. */
+  function atrHasDatedBands(obj) {
+    var dated = ATR_COHORTS.slice(0, 3), by = obj && obj.totals && obj.totals.by_cohort;
+    if (by && typeof by === "object" && ATR_COHORTS.some(function (id) { return has(by, id) && isNum(by[id]); })) { return dated.some(function (id) { return has(by, id) && isNum(by[id]) && by[id] > 0; }); }
+    var found = false;
+    var visit = function (county) {
+      (county && Array.isArray(county.cells) ? county.cells : []).forEach(function (row) { if (Array.isArray(row) && dated.indexOf(row[3]) >= 0 && isNum(row[4]) && row[4] > 0) { found = true; } });
+    };
+    Object.keys((obj && obj.counties) || {}).forEach(function (name) { visit(obj.counties[name]); });
+    visit(obj && obj.unknown_county);
+    return found;
+  }
+
   /* Share of the MW in the list whose detail is withheld or merged, from the published coverage figures: (merged + suppressed) / total, one decimal. null when it cannot be told. */
   function atrCoverage(totals) {
     var c = totals && totals.coverage;
@@ -191,6 +205,6 @@
   return {
     ATR_COHORTS: ATR_COHORTS, ATR_MERGED: ATR_MERGED, ATR_BREAKS: ATR_BREAKS, ATR_MW_RAMP: MW_RAMP,
     aggregateCounty: aggregateCounty, dominantCohort: dominantCohort, cohortColour: cohortColour, atrNeutral: atrNeutral, atrMwClass: atrMwClass, atrClassLabels: atrClassLabels,
-    atrMwColour: atrMwColour, atrMwText: atrMwText, atrShownText: atrShownText, atrRemainder: atrRemainder, atrBandCounts: atrBandCounts, atrFilterOptions: atrFilterOptions, atrCoverage: atrCoverage, checkAtr: checkAtr
+    atrMwColour: atrMwColour, atrMwText: atrMwText, atrShownText: atrShownText, atrRemainder: atrRemainder, atrBandCounts: atrBandCounts, atrFilterOptions: atrFilterOptions, atrHasDatedBands: atrHasDatedBands, atrCoverage: atrCoverage, checkAtr: checkAtr
   };
 });
