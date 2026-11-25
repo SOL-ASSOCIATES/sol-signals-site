@@ -1,6 +1,6 @@
 Romanian Energy Grid Atlas - data licence notice
 
-Edition: PUBLIC, DEMO edition. Build 72cb569628c9, built 2026-11-24T16:39:45Z.
+Edition: PUBLIC, DEMO edition. Build e74d7eec2d72, built 2026-11-25T04:35:15Z.
 
 The files in the data folder are derived from the sources below. Each layer keeps the licence of its source. Sol Associates changed the data
 (selection, simplification, rounding and filtering of text fields); the method of each layer is stated in the page.

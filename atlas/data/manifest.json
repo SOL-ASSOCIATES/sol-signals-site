@@ -1,8 +1,8 @@
 {
  "tier": "PUBLIC",
  "edition": "demo",
- "build_id": "72cb569628c9",
- "built_at": "2026-11-24T16:39:45Z",
+ "build_id": "e74d7eec2d72",
+ "built_at": "2026-11-25T04:35:15Z",
  "preview": false,
  "basemap": {
   "url": "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -78,7 +78,7 @@
     "other": 2,
     "unknown": 25
    },
-   "age_days": 0,
+   "age_days": 1,
    "stale": false,
    "categories": [
     "wind",
@@ -157,7 +157,7 @@
     "other": 2,
     "unknown": 54
    },
-   "age_days": 0,
+   "age_days": 1,
    "stale": false,
    "categories": [
     "wind",
@@ -232,7 +232,7 @@
     "other": 159,
     "unknown": 1137
    },
-   "age_days": 0,
+   "age_days": 1,
    "stale": false,
    "categories": [
     "750",
@@ -303,7 +303,7 @@
     "other": 750,
     "unknown": 2382
    },
-   "age_days": 0,
+   "age_days": 1,
    "stale": false,
    "categories": [
     "750",
@@ -367,7 +367,7 @@
    "counts": {
     "features": 42
    },
-   "age_days": 0,
+   "age_days": 1,
    "stale": false
   },
   {
@@ -422,7 +422,7 @@
    "counts": {
     "features": 1
    },
-   "age_days": 0,
+   "age_days": 1,
    "stale": false
   },
   {
@@ -439,18 +439,18 @@
     "metric": "100 m wind speed and total cloud cover forecast",
     "unit": "wind100_ms in m/s; cloud_pct in percent",
     "as_of": "2026-11-24",
-    "retrieved_at": "2026-11-24T16:39:16Z",
-    "built_at": "2026-11-24T16:39:20Z",
+    "retrieved_at": "2026-11-25T04:35:00Z",
+    "built_at": "2026-11-25T04:35:02Z",
     "time_basis": "forecast_validity",
     "evidence_label": "FORECAST",
     "verification_status": "UNVERIFIED",
-    "source_ref": "https://data.ecmwf.int/forecasts/20261124/06z/ifs/0p25/oper/",
-    "transform_note": "Run 20261124/06z (stream oper, type fc, 0.25 degree). Wind speed = sqrt(100u^2 + 100v^2) rounded to 0.1 m/s; total cloud cover scaled from a fraction to percent, rounded to 1 percent. One 0.25 degree square per grid point whose centre lies inside the Romania outline; values are the GRIB values at their native steps, with no interpolation or smoothing.",
+    "source_ref": "https://data.ecmwf.int/forecasts/20261124/18z/ifs/0p25/oper/",
+    "transform_note": "Run 20261124/18z (stream oper, type fc, 0.25 degree). Wind speed = sqrt(100u^2 + 100v^2) rounded to 0.1 m/s; total cloud cover scaled from a fraction to percent, rounded to 1 percent. One 0.25 degree square per grid point whose centre lies inside the Romania outline; values are the GRIB values at their native steps, with no interpolation or smoothing.",
     "transform_version": "weather-1",
     "model": "ECMWF IFS HRES open data 0.25 deg",
-    "issued_at": "2026-11-24T06:00:00Z",
-    "valid_from": "2026-11-24T06:00:00Z",
-    "valid_to": "2026-11-27T06:00:00Z",
+    "issued_at": "2026-11-24T18:00:00Z",
+    "valid_from": "2026-11-24T18:00:00Z",
+    "valid_to": "2026-11-27T18:00:00Z",
     "licence": {
      "identifier": "CC-BY-4.0",
      "terms_ref": "https://apps.ecmwf.int/datasets/licences/general/",
@@ -485,7 +485,7 @@
    "counts": {
     "cells": 447
    },
-   "age_days": 0,
+   "age_days": 1,
    "stale": false
   },
   {
@@ -542,7 +542,7 @@
    "counts": {
     "image": 1
    },
-   "age_days": 2545,
+   "age_days": 2546,
    "stale": false
   },
   {
@@ -599,7 +599,7 @@
    "counts": {
     "image": 1
    },
-   "age_days": 2545,
+   "age_days": 2546,
    "stale": false
   },
   {
@@ -615,14 +615,14 @@
     "layer_id": "production_national",
     "metric": "Daily electricity production by fuel, Romania (ENTSO-E bidding zone RO)",
     "unit": "MWh per local day (Europe/Bucharest)",
-    "as_of": "2026-11-23",
-    "retrieved_at": "2026-11-24T16:39:40Z",
-    "built_at": "2026-11-24T16:39:41Z",
+    "as_of": "2026-11-24",
+    "retrieved_at": "2026-11-25T04:35:11Z",
+    "built_at": "2026-11-25T04:35:12Z",
     "time_basis": "interval",
     "evidence_label": "DERIVED",
     "verification_status": "UNVERIFIED",
     "source_ref": "https://transparency.entsoe.eu",
-    "transform_note": "Daily totals by fuel from ENTSO-E actual generation per production type (documentType A75, processType A16, domain RO) for the Europe/Bucharest local days 2026-11-17 to 2026-11-23. For each day that has a stored vintage, the energy of a fuel is the sum of mean power times interval length over the intervals that have a value (each fuel keeps its native interval and is never resampled); the totals are computed by Sol Associates and rounded to 0.1 MWh. A day without a stored vintage is empty (null), never zero. Interval series, excluded columns and raw files are not part of this layer.",
+    "transform_note": "Daily totals by fuel from ENTSO-E actual generation per production type (documentType A75, processType A16, domain RO) for the Europe/Bucharest local days 2026-11-18 to 2026-11-24. For each day that has a stored vintage, the energy of a fuel is the sum of mean power times interval length over the intervals that have a value (each fuel keeps its native interval and is never resampled); the totals are computed by Sol Associates and rounded to 0.1 MWh. A day without a stored vintage is empty (null), never zero. Interval series, excluded columns and raw files are not part of this layer.",
     "transform_version": "production-daily-1",
     "licence": {
      "identifier": "ENTSO-E Transparency Platform Terms of Use (29/03/2023): no licence is stated for this data type",
@@ -631,7 +631,7 @@
     },
     "scope": {
      "geography": "Romania, ENTSO-E bidding zone RO (national total)",
-     "coverage": "7 of the last 7 complete local days (2026-11-17 to 2026-11-23, Europe/Bucharest)",
+     "coverage": "7 of the last 7 complete local days (2026-11-18 to 2026-11-24, Europe/Bucharest)",
      "population": "Aggregated actual generation per production type as reported to ENTSO-E; storage charging load is excluded",
      "denominator": "None: absolute MWh per day, no share of a total",
      "spatial_resolution": "National total, no spatial breakdown",
@@ -741,7 +741,7 @@
     "date_conflicted": 0,
     "suppressed": 3
    },
-   "age_days": 213,
+   "age_days": 214,
    "stale": false,
    "date_word": "Published"
   }
@@ -1207,8 +1207,8 @@
    "bytes": 44986
   },
   "data/production_national.json": {
-   "sha256": "0041bd5fe0c28bd76cd0ca99aca81a4311cf5555115b8e3da644ebd279e587e4",
-   "bytes": 1495
+   "sha256": "6e0bc70dac566ae62f81c47bf2d7248d46a3e43f1c15777543960f7d24848aa9",
+   "bytes": 1496
   },
   "data/solar_ghi.json": {
    "sha256": "81dea7496b4cce21ec9138783a3322421a072077097b1c19806c8255c0d2a612",
@@ -1227,8 +1227,8 @@
    "bytes": 613546
   },
   "data/weather_forecast.json": {
-   "sha256": "0b0e188cb3ee5a25d37bfdd01dfbc8ccf7bbca2b3cbf227c9af80beac1587066",
-   "bytes": 201230
+   "sha256": "f75032c037936eca6dd81ce9c5281a7441233ff21abd7843599f9f1563423335",
+   "bytes": 203242
   }
  },
  "decision_ref": "DR-2026-10-17-001"
